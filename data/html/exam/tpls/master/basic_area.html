@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PHPEMS模拟考试系统后台管理</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/datetimepicker.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/jquery-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/peskin.css" />
+	<!--[if lt IE 9]>
+	<script src="app/core/styles/js/html5shiv.min.js"></script>
+	<script src="app/core/styles/js/respond.min.js"></script>
+	<![endif]-->
+	<script src="app/core/styles/js/jquery.min.js"></script>
+	<script src="app/core/styles/js/jquery-ui.min.js"></script>
+	<script src="app/core/styles/js/bootstrap.min.js"></script>
+	<script src="app/core/styles/js/bootstrap-datetimepicker.js"></script>
+
+	<script src="app/core/styles/js/all.fine-uploader.min.js"></script>
+
+	<script src="app/core/styles/js/ckeditor/ckeditor.js"></script>
+	<script src="app/core/styles/js/plugin.js"></script>
+</head><body>
+<div class="container-fluid box" style="margin:0px auto;padding-top:10px;overflow:visible">	<div class="row-fluid">		<div class="main">			<div class="col-xs-10">				<h2 style="color:#337AB7;"><a href="index.php"><img src="app/core/styles/img/logo2.png" style="height:60px;margin-top:-10px;"/>&nbsp;PHPEMS管理平台</a></h2>			</div>			<div class="col-xs-2" style="padding-top:22px;">				<ul class="list-unstyled list-inline">										<li>						<div class="btn-group">							<button type="button" class="btn btn-info"><em class="glyphicon glyphglyphicon glyphicon-user"></em> peadmin</button>							<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">								<span class="caret"></span>								<span class="sr-only">Toggle Dropdown</span>							</button>							<ul class="dropdown-menu">								<li><a href="index.php?user-center"><em class="glyphicon glyphglyphicon glyphicon-user"></em> 用户中心</a></li>																<li><a href="index.php?core-master"><em class="glyphicon glyphglyphicon glyphicon-dashboard"></em> 后台管理</a></li>								<li><a class="ajax" href="index.php?user-app-logout"><em class="glyphicon glyphglyphicon glyphicon-log-out"></em> 退出</a></li>							</ul>						</div>					</li>									</ul>			</div>		</div>	</div></div><div class="container-fluid navbar" style="margin-top:0px;margin-bottom:0px;padding-top:10px;background-color:#337AB7;">	<div class="row-fluid">		<div class="main">			<div class="col-xs-12">				<ul class="list-unstyled list-inline">					<li class="menu col-xs-1">						<a href="index.php?core-master">全局</a>					</li>																				<li class="menu col-xs-1">						<a href="index.php?user-master">用户模块</a>					</li>																				<li class="menu col-xs-1 active">						<a href="index.php?exam-master">考试模块</a>					</li>																														<li class="menu col-xs-1">						<a href="index.php?document-master">文件模块</a>					</li>																				<li class="menu col-xs-1">						<a href="index.php?content-master">内容模块</a>					</li>																				<li class="menu col-xs-1">						<a href="index.php?bank-master">财务模块</a>					</li>																				<li class="menu col-xs-1">						<a href="index.php?course-master">课程模块</a>					</li>																				<li class="menu col-xs-1">						<a href="index.php?certificate-master">证书模块</a>					</li>																				<li class="menu col-xs-1">						<a href="index.php?docs-master">文档模块</a>					</li>																			</ul>			</div>		</div>	</div></div><div class="container-fluid">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="col-xs-2" style="padding-top:10px;margin-bottom:0px;">
+				<style>.panel-heading a{color:#FFFFFF;text-decoration:none;}</style><div class="panel-group" id="panel-13465">	<div class="panel panel-primary">		<div class="panel-heading">			<a class="panel-toggle text-center" data-parent="#panel-13465" data-toggle="collapse" href="#panel-element-707348">				<em class="glyphicon glyphglyphicon glyphicon-th-large"></em> 考试设计			</a>		</div>		<div id="panel-element-707348" class="panel-collapse in collapse" role="tabpanel">     		<ul class="list-group">				<li class="list-group-item"><a href="?exam-master-basic">考场列表</a></li>	    		<li class="list-group-item"><a href="?exam-master-basic-area">地区设置</a></li>	    		<li class="list-group-item"><a href="?exam-master-basic-subject">科目管理</a></li>	    		<li class="list-group-item"><a href="?exam-master-basic-questype">题型管理</a></li>			</ul>		</div>	</div>	<div class="panel panel-primary">		<div class="panel-heading">			<a class="panel-toggle text-center" data-parent="#panel-13465" data-toggle="collapse" href="#panel-element-2120761">				<em class="glyphicon glyphglyphicon glyphicon-user"></em> 课程开通			</a>		</div>		<div id="panel-element-2120761" class="panel-collapse collapse" role="tabpanel">     		<ul class="list-group">				<li class="list-group-item"><a href="index.php?exam-master-users">开通课程</a></li>				<li class="list-group-item"><a href="index.php?exam-master-users-batopen">批量开通</a></li>			</ul>		</div>	</div>	<div class="panel panel-primary">		<div class="panel-heading">			<a class="panel-toggle text-center" data-parent="#panel-13465" data-toggle="collapse" href="#panel-element-212076">				<em class="glyphicon glyphglyphicon glyphicon-text-color"></em> 试题管理			</a>		</div>		<div id="panel-element-212076" class="panel-collapse collapse" role="tabpanel">     		<ul class="list-group">				<li class="list-group-item"><a href="index.php?exam-master-questions">普通试题管理</a></li>				<li class="list-group-item"><a href="index.php?exam-master-rowsquestions">题帽题管理</a></li>				<li class="list-group-item"><a href="index.php?exam-master-feedback">错题反馈</a></li>			</ul>		</div>	</div>	<div class="panel panel-primary">		<div class="panel-heading">			<a class="panel-toggle text-center" data-parent="#panel-13465" data-toggle="collapse" href="#panel-element-212096">				<em class="glyphicon glyphglyphicon glyphicon-duplicate"></em> 试卷管理			</a>		</div>		<div id="panel-element-212096" class="panel-collapse collapse" role="tabpanel">     		<ul class="list-group">				<li class="list-group-item"><a href="index.php?exam-master-exams">试卷列表</a></li>				<li class="list-group-item"><a href="index.php?exam-master-exams-autopage">随机组卷</a></li>				<li class="list-group-item"><a href="index.php?exam-master-exams-selfpage">手工组卷</a></li>				<li class="list-group-item"><a href="index.php?exam-master-exams-temppage">即时组卷</a></li>			</ul>		</div>	</div>	<div class="panel panel-primary">		<div class="panel-heading">			<a class="panel-toggle text-center" data-parent="#panel-13465" data-toggle="collapse" href="#panel-element-212090">				<em class="glyphicon glyphglyphicon glyphicon-trash"></em> 回收站			</a>		</div>		<div id="panel-element-212090" class="panel-collapse collapse" role="tabpanel">     		<ul class="list-group">				<li class="list-group-item"><a href="index.php?exam-master-recyle">普通试题</a></li>				<li class="list-group-item"><a href="index.php?exam-master-recyle-rows">题帽题</a></li>				<li class="list-group-item"><a href="index.php?exam-master-recyle-knows">知识点</a></li>			</ul>		</div>	</div>	<div class="panel panel-primary">		<div class="panel-heading">			<a class="panel-toggle text-center" data-parent="#panel-13465" data-toggle="collapse" href="#panel-element-2120901">				<em class="glyphicon glyphglyphicon glyphicon-wrench"></em> 批量工具			</a>		</div>		<div id="panel-element-2120901" class="panel-collapse collapse" role="tabpanel">     		<ul class="list-group">				<li class="list-group-item"><a href="index.php?exam-master-tools">删除试题</a></li>				<li class="list-group-item"><a href="index.php?exam-master-tools-clearhistory">清空考试记录</a></li>				<li class="list-group-item"><a href="index.php?exam-master-tools-clearsession">清理会话</a></li>			</ul>		</div>	</div></div>			</div>
+			<div class="col-xs-10" id="datacontent">
+				<div class="box itembox" style="margin-bottom:0px;border-bottom:1px solid #CCCCCC;">
+					<div class="col-xs-12">
+						<ol class="breadcrumb">
+							<li><a href="index.php?exam-master">考试模块</a></li>
+							<li class="active">地区设置</li>
+						</ol>
+					</div>
+				</div>
+				<div class="box itembox" style="padding-top:10px;margin-bottom:0px;">
+					<h4 class="title" style="padding:10px;">
+						地区设置
+						<a class="btn btn-primary pull-right" href="index.php?exam-master-basic-addarea&page=1">添加地区</a>
+					</h4>
+			        <table class="table table-hover table-bordered">
+						<thead>
+							<tr class="info">
+			                    <th>地区ID</th>
+			                    <th>区号</th>
+								<th>地区名称</th>
+								<th>默认</th>
+								<th>操作</th>
+			                </tr>
+			            </thead>
+			            <tbody>
+		                    							<tr>
+								<td>1</td>
+								<td>1</td>
+								<td>全国</td>
+								<td><em class="glyphicon glyphicon-ok"></em></td>
+								<td>
+									<div class="btn-group">
+			                    		<a class="btn" href="index.php?exam-master-basic&search[basicareaid]=1&page=1" title="考场"><em class="glyphicon glyphicon-th-list"></em></a>
+			                    		<a class="btn" href="index.php?exam-master-basic-modifyarea&areaid=1&page=1" title="修改"><em class="glyphicon glyphicon-edit"></em></a>
+										<a class="btn ajax" href="index.php?exam-master-basic-delarea&areaid=1&page=1" title="删除"><em class="glyphicon glyphicon-remove"></em></a>
+			                    	</div>
+								</td>
+							</tr>
+														<tr>
+								<td>3</td>
+								<td>373</td>
+								<td>河南</td>
+								<td><em class="glyphicon glyphicon-remove"></em></td>
+								<td>
+									<div class="btn-group">
+			                    		<a class="btn" href="index.php?exam-master-basic&search[basicareaid]=3&page=1" title="考场"><em class="glyphicon glyphicon-th-list"></em></a>
+			                    		<a class="btn" href="index.php?exam-master-basic-modifyarea&areaid=3&page=1" title="修改"><em class="glyphicon glyphicon-edit"></em></a>
+										<a class="btn ajax" href="index.php?exam-master-basic-delarea&areaid=3&page=1" title="删除"><em class="glyphicon glyphicon-remove"></em></a>
+			                    	</div>
+								</td>
+							</tr>
+														<tr>
+								<td>4</td>
+								<td>10</td>
+								<td>北京</td>
+								<td><em class="glyphicon glyphicon-remove"></em></td>
+								<td>
+									<div class="btn-group">
+			                    		<a class="btn" href="index.php?exam-master-basic&search[basicareaid]=4&page=1" title="考场"><em class="glyphicon glyphicon-th-list"></em></a>
+			                    		<a class="btn" href="index.php?exam-master-basic-modifyarea&areaid=4&page=1" title="修改"><em class="glyphicon glyphicon-edit"></em></a>
+										<a class="btn ajax" href="index.php?exam-master-basic-delarea&areaid=4&page=1" title="删除"><em class="glyphicon glyphicon-remove"></em></a>
+			                    	</div>
+								</td>
+							</tr>
+														<tr>
+								<td>5</td>
+								<td>29</td>
+								<td>陕西</td>
+								<td><em class="glyphicon glyphicon-remove"></em></td>
+								<td>
+									<div class="btn-group">
+			                    		<a class="btn" href="index.php?exam-master-basic&search[basicareaid]=5&page=1" title="考场"><em class="glyphicon glyphicon-th-list"></em></a>
+			                    		<a class="btn" href="index.php?exam-master-basic-modifyarea&areaid=5&page=1" title="修改"><em class="glyphicon glyphicon-edit"></em></a>
+										<a class="btn ajax" href="index.php?exam-master-basic-delarea&areaid=5&page=1" title="删除"><em class="glyphicon glyphicon-remove"></em></a>
+			                    	</div>
+								</td>
+							</tr>
+														<tr>
+								<td>6</td>
+								<td>311</td>
+								<td>河北</td>
+								<td><em class="glyphicon glyphicon-remove"></em></td>
+								<td>
+									<div class="btn-group">
+			                    		<a class="btn" href="index.php?exam-master-basic&search[basicareaid]=6&page=1" title="考场"><em class="glyphicon glyphicon-th-list"></em></a>
+			                    		<a class="btn" href="index.php?exam-master-basic-modifyarea&areaid=6&page=1" title="修改"><em class="glyphicon glyphicon-edit"></em></a>
+										<a class="btn ajax" href="index.php?exam-master-basic-delarea&areaid=6&page=1" title="删除"><em class="glyphicon glyphicon-remove"></em></a>
+			                    	</div>
+								</td>
+							</tr>
+														<tr>
+								<td>7</td>
+								<td>22</td>
+								<td>天津</td>
+								<td><em class="glyphicon glyphicon-remove"></em></td>
+								<td>
+									<div class="btn-group">
+			                    		<a class="btn" href="index.php?exam-master-basic&search[basicareaid]=7&page=1" title="考场"><em class="glyphicon glyphicon-th-list"></em></a>
+			                    		<a class="btn" href="index.php?exam-master-basic-modifyarea&areaid=7&page=1" title="修改"><em class="glyphicon glyphicon-edit"></em></a>
+										<a class="btn ajax" href="index.php?exam-master-basic-delarea&areaid=7&page=1" title="删除"><em class="glyphicon glyphicon-remove"></em></a>
+			                    	</div>
+								</td>
+							</tr>
+														<tr>
+								<td>8</td>
+								<td>531</td>
+								<td>山东</td>
+								<td><em class="glyphicon glyphicon-remove"></em></td>
+								<td>
+									<div class="btn-group">
+			                    		<a class="btn" href="index.php?exam-master-basic&search[basicareaid]=8&page=1" title="考场"><em class="glyphicon glyphicon-th-list"></em></a>
+			                    		<a class="btn" href="index.php?exam-master-basic-modifyarea&areaid=8&page=1" title="修改"><em class="glyphicon glyphicon-edit"></em></a>
+										<a class="btn ajax" href="index.php?exam-master-basic-delarea&areaid=8&page=1" title="删除"><em class="glyphicon glyphicon-remove"></em></a>
+			                    	</div>
+								</td>
+							</tr>
+														<tr>
+								<td>9</td>
+								<td>25</td>
+								<td>江苏</td>
+								<td><em class="glyphicon glyphicon-remove"></em></td>
+								<td>
+									<div class="btn-group">
+			                    		<a class="btn" href="index.php?exam-master-basic&search[basicareaid]=9&page=1" title="考场"><em class="glyphicon glyphicon-th-list"></em></a>
+			                    		<a class="btn" href="index.php?exam-master-basic-modifyarea&areaid=9&page=1" title="修改"><em class="glyphicon glyphicon-edit"></em></a>
+										<a class="btn ajax" href="index.php?exam-master-basic-delarea&areaid=9&page=1" title="删除"><em class="glyphicon glyphicon-remove"></em></a>
+			                    	</div>
+								</td>
+							</tr>
+														<tr>
+								<td>10</td>
+								<td>27</td>
+								<td>湖北</td>
+								<td><em class="glyphicon glyphicon-remove"></em></td>
+								<td>
+									<div class="btn-group">
+			                    		<a class="btn" href="index.php?exam-master-basic&search[basicareaid]=10&page=1" title="考场"><em class="glyphicon glyphicon-th-list"></em></a>
+			                    		<a class="btn" href="index.php?exam-master-basic-modifyarea&areaid=10&page=1" title="修改"><em class="glyphicon glyphicon-edit"></em></a>
+										<a class="btn ajax" href="index.php?exam-master-basic-delarea&areaid=10&page=1" title="删除"><em class="glyphicon glyphicon-remove"></em></a>
+			                    	</div>
+								</td>
+							</tr>
+														<tr>
+								<td>11</td>
+								<td>24</td>
+								<td>辽宁</td>
+								<td><em class="glyphicon glyphicon-remove"></em></td>
+								<td>
+									<div class="btn-group">
+			                    		<a class="btn" href="index.php?exam-master-basic&search[basicareaid]=11&page=1" title="考场"><em class="glyphicon glyphicon-th-list"></em></a>
+			                    		<a class="btn" href="index.php?exam-master-basic-modifyarea&areaid=11&page=1" title="修改"><em class="glyphicon glyphicon-edit"></em></a>
+										<a class="btn ajax" href="index.php?exam-master-basic-delarea&areaid=11&page=1" title="删除"><em class="glyphicon glyphicon-remove"></em></a>
+			                    	</div>
+								</td>
+							</tr>
+										        	</tbody>
+			        </table>
+			        <ul class="pagination pull-right">
+						<li><a href="#" class="current">1</a></li><li><a target="" href="index.php?exam-master-basic-area&page=2">2</a></li><li><a target="" href="index.php?exam-master-basic-area&page=3">3</a></li><li><a>共27条数据</a></li>					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid box" style="background-color:#337AB7;margin-bottom:0px;" id="footer">
+	<div class="row-fluid">
+		<div class="main itembox">
+			<div class="col-xs-12">
+				<ul class="list-unstyled">
+					<li class="text-center"><a href="">PHPEMS在线模拟考试系统 著作权登记号：2013 SR 113189</a></li>
+					<li class="text-center"><a href="">Copyright © phpems.net  2015-2016</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div></body>
+</html>

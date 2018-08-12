@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PHPEMS模拟考试系统后台管理</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/bootstrap-treeview.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/datetimepicker.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/jquery-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/peskin.css" />
+	<!--[if lt IE 9]>
+	<script src="app/core/styles/js/html5shiv.min.js"></script>
+	<script src="app/core/styles/js/respond.min.js"></script>
+	<![endif]-->
+	<script src="app/core/styles/js/jquery.min.js"></script>
+	<script src="app/core/styles/js/jquery-ui.min.js"></script>
+	<script src="app/core/styles/js/bootstrap.min.js"></script>
+	<script src="app/core/styles/js/bootstrap-datetimepicker.js"></script>
+	<script src="app/core/styles/js/all.fine-uploader.min.js"></script>
+	<script src="app/core/styles/js/ckeditor/ckeditor.js"></script>
+	<script src="app/core/styles/js/plugin.js"></script>
+	<script src="app/core/styles/js/bootstrap-treeview.js"></script>
+</head><body>
+<div class="container-fluid box" style="margin:0px auto;padding-top:10px;overflow:visible">	<div class="row-fluid">		<div class="main">			<div class="col-xs-10">				<h2 style="color:#337AB7;"><a href="index.php"><img src="app/core/styles/img/logo2.png" style="height:60px;margin-top:-10px;"/>&nbsp;PHPEMS管理平台</a></h2>			</div>			<div class="col-xs-2" style="padding-top:22px;">				<ul class="list-unstyled list-inline">										<li>						<div class="btn-group">							<button type="button" class="btn btn-info"><em class="glyphicon glyphicon-user"></em> peadmin</button>							<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">								<span class="caret"></span>								<span class="sr-only">Toggle Dropdown</span>							</button>							<ul class="dropdown-menu">								<li><a href="index.php?user-center"><em class="glyphicon glyphicon-user"></em> 用户中心</a></li>																<li><a href="index.php?core-master"><em class="glyphicon glyphicon-dashboard"></em> 后台管理</a></li>								<li><a class="ajax" href="index.php?user-app-logout"><em class="glyphicon glyphicon-log-out"></em> 退出</a></li>							</ul>						</div>					</li>									</ul>			</div>		</div>	</div></div><div class="container-fluid navbar" style="margin-top:0px;margin-bottom:0px;padding-top:10px;background-color:#337AB7;">	<div class="row-fluid">		<div class="main">			<div class="col-xs-12">				<ul class="list-unstyled list-inline">					<li class="menu col-xs-1">						<a href="index.php?core-master">全局</a>					</li>																				<li class="menu col-xs-1">						<a href="index.php?user-master">用户模块</a>					</li>																				<li class="menu col-xs-1">						<a href="index.php?exam-master">考试模块</a>					</li>																														<li class="menu col-xs-1">						<a href="index.php?document-master">文件模块</a>					</li>																				<li class="menu col-xs-1 active">						<a href="index.php?content-master">内容模块</a>					</li>																				<li class="menu col-xs-1">						<a href="index.php?bank-master">财务模块</a>					</li>																				<li class="menu col-xs-1">						<a href="index.php?course-master">课程模块</a>					</li>																				<li class="menu col-xs-1">						<a href="index.php?certificate-master">证书模块</a>					</li>																				<li class="menu col-xs-1">						<a href="index.php?docs-master">文档模块</a>					</li>																			</ul>			</div>		</div>	</div></div><div class="container-fluid">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="col-xs-2" style="padding-top:10px;margin-bottom:0px;">
+				<ul class="list-group">	<li class="list-group-item ">				<a href="index.php?content-master">首页</a>			</li>	<li class="list-group-item ">        		<a href="index.php?content-master-positions">推荐管理</a>        	</li>	<li class="list-group-item active">		分类管理			</li>	<li class="list-group-item ">				<a href="index.php?content-master-contents">内容管理</a>			</li>	<li class="list-group-item ">				<a href="index.php?content-master-module">模型管理</a>			</li>	<li class="list-group-item ">				<a href="index.php?content-master-blocks">标签管理</a>			</li></ul>			</div>
+			<div class="col-xs-10" id="datacontent">
+				<div class="box itembox" style="margin-bottom:0px;border-bottom:1px solid #CCCCCC;">
+					<div class="col-xs-12">
+						<ol class="breadcrumb">
+							<li><a href="index.php?content-master">内容模块</a></li>
+							<li class="active">分类管理</li>
+						</ol>
+					</div>
+				</div>
+				<div class="box itembox" style="padding-top:10px;margin-bottom:0px;">
+					<h4 class="title" style="padding:10px;">
+						分类管理
+						<span class="dropdown pull-right">
+							<a class="btn btn-primary" href="#" data-toggle="dropdown">添加分类 <strong class="caret"></strong></a>
+							<ul class="dropdown-menu">
+								<li><a href="index.php?content-master-category-add&parent=0">添加分类</a></li>
+								<li><a href="index.php?content-master-category&parent=">上级分类</a></li>
+		                    </ul>
+						</span>
+					</h4>
+					<h4>一级分类</h4>
+					<form action="index.php?content-master-category-lite" method="post">
+						<fieldset>
+							<table class="table table-hover table-bordered">
+								<thead>
+									<tr class="info">
+										<th width="80">排序</th>
+										<th width="80">ID</th>
+										<th width="80">缩略图</th>
+										<th>分类名称</th>
+										<th width="180">操作</th>
+									</tr>
+								</thead>
+								<tbody>
+																		<tr>
+										<td><input type="text" class="form-control" name="ids[4]" value="0" style="width:48px;padding:2px 5px;"/></td>
+										<td>4</td>
+										<td><img src="files/attach/images/content/20160630/14672817317018.jpg" alt="" style="width:48px;"/></td>
+										<td><span>帮助信息</span></td>
+										<td>
+											<div class="btn-group">
+												<a class="btn" href="index.php?content-master-category-add&parent=4"><em class="glyphicon glyphicon-plus"></em></a>
+												<a class="btn" href="index.php?content-master-category&parent=4"><em class="glyphicon glyphicon-list"></em></a>
+												<a class="btn" href="index.php?content-master-category-edit&page=1&catid=4"><em class="glyphicon glyphicon-edit"></em></a>
+												<a class="btn confirm" href="index.php?content-master-category-del&catid=4&page=1"><em class="glyphicon glyphicon-remove"></em></a>
+											</div>
+										</td>
+									</tr>
+																		<tr>
+										<td><input type="text" class="form-control" name="ids[3]" value="0" style="width:48px;padding:2px 5px;"/></td>
+										<td>3</td>
+										<td><img src="files/attach/images/content/20160630/14672817048286.jpg" alt="" style="width:48px;"/></td>
+										<td><span>考试资料</span></td>
+										<td>
+											<div class="btn-group">
+												<a class="btn" href="index.php?content-master-category-add&parent=3"><em class="glyphicon glyphicon-plus"></em></a>
+												<a class="btn" href="index.php?content-master-category&parent=3"><em class="glyphicon glyphicon-list"></em></a>
+												<a class="btn" href="index.php?content-master-category-edit&page=1&catid=3"><em class="glyphicon glyphicon-edit"></em></a>
+												<a class="btn confirm" href="index.php?content-master-category-del&catid=3&page=1"><em class="glyphicon glyphicon-remove"></em></a>
+											</div>
+										</td>
+									</tr>
+																		<tr>
+										<td><input type="text" class="form-control" name="ids[2]" value="0" style="width:48px;padding:2px 5px;"/></td>
+										<td>2</td>
+										<td><img src="files/attach/images/content/20160630/14672817455479.jpg" alt="" style="width:48px;"/></td>
+										<td><span>首页头图</span></td>
+										<td>
+											<div class="btn-group">
+												<a class="btn" href="index.php?content-master-category-add&parent=2"><em class="glyphicon glyphicon-plus"></em></a>
+												<a class="btn" href="index.php?content-master-category&parent=2"><em class="glyphicon glyphicon-list"></em></a>
+												<a class="btn" href="index.php?content-master-category-edit&page=1&catid=2"><em class="glyphicon glyphicon-edit"></em></a>
+												<a class="btn confirm" href="index.php?content-master-category-del&catid=2&page=1"><em class="glyphicon glyphicon-remove"></em></a>
+											</div>
+										</td>
+									</tr>
+																		<tr>
+										<td><input type="text" class="form-control" name="ids[1]" value="0" style="width:48px;padding:2px 5px;"/></td>
+										<td>1</td>
+										<td><img src="files/attach/images/content/20160630/14672817197914.jpg" alt="" style="width:48px;"/></td>
+										<td><span>考试信息</span></td>
+										<td>
+											<div class="btn-group">
+												<a class="btn" href="index.php?content-master-category-add&parent=1"><em class="glyphicon glyphicon-plus"></em></a>
+												<a class="btn" href="index.php?content-master-category&parent=1"><em class="glyphicon glyphicon-list"></em></a>
+												<a class="btn" href="index.php?content-master-category-edit&page=1&catid=1"><em class="glyphicon glyphicon-edit"></em></a>
+												<a class="btn confirm" href="index.php?content-master-category-del&catid=1&page=1"><em class="glyphicon glyphicon-remove"></em></a>
+											</div>
+										</td>
+									</tr>
+																	</tbody>
+							</table>
+							<div class="control-group">
+					            <div class="controls">
+						            						            <label class="radio inline">
+						            	<button class="btn btn-primary" type="submit">更改排序</button>
+						            </label>
+						            <input type="hidden" name="modifycategorysequence" value="1"/>
+						            <input type="hidden" name="page" value="1"/>
+						        </div>
+					        </div>
+							<ul class="pagination pull-right">
+															</ul>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid box" style="background-color:#337AB7;margin-bottom:0px;" id="footer">
+	<div class="row-fluid">
+		<div class="main itembox">
+			<div class="col-xs-12">
+				<ul class="list-unstyled">
+					<li class="text-center"><a href="">PHPEMS在线模拟考试系统 著作权登记号：2013 SR 113189</a></li>
+					<li class="text-center"><a href="">Copyright © phpems.net  2015-2016</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div></body>
+</html>
