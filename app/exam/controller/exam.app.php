@@ -30,6 +30,7 @@ class action extends app
 
 	private function ajax()
 	{
+            echo "url4 exam = ".$this->ev->url(4);
 		switch($this->ev->url(4))
 		{
 			//获取剩余考试时间

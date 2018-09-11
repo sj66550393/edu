@@ -42,6 +42,7 @@ class action extends app
 
 	private function ajax()
 	{
+          
 		switch($this->ev->url(4))
 		{
 			//获取剩余考试时间
@@ -60,6 +61,7 @@ class action extends app
 				}
 			}
 			echo $lefttime;
+                        var_dump ($lefttime);
 			exit();
 			break;
 
