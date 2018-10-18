@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PHPEMS模拟考试系统</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/datetimepicker.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/jquery-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/peskin.css" />
+	<!--[if lt IE 9]>
+	<script src="app/core/styles/js/html5shiv.min.js"></script>
+	<script src="app/core/styles/js/respond.min.js"></script>
+	<![endif]-->
+	<script src="app/core/styles/js/jquery.min.js"></script>
+	<script src="app/core/styles/js/jquery.json.js"></script>
+	<script src="app/core/styles/js/jquery-ui.min.js"></script>
+	<script src="app/core/styles/js/bootstrap.min.js"></script>
+	<script src="app/core/styles/js/bootstrap-datetimepicker.js"></script>
+	<script src="app/core/styles/js/all.fine-uploader.min.js"></script>
+	<script src="app/core/styles/js/ckeditor/js/MathJax.js?config=TeX-AMS_HTML"></script>
+	<script src="app/core/styles/js/ckeditor/ckeditor.js"></script>
+	<script src="app/core/styles/js/plugin.js"></script>
+	<script src="app/exam/styles/js/plugin.js"></script>
+</head><body data-spy="scroll" data-target="#myScrollspy">
+<div class="container-fluid box" style="margin:0px auto;padding-top:10px;overflow:visible">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="col-xs-3">
+				<h1 style="font-size:42px;color:#337AB7;"><img src="app/core/styles/img/logo2.png" style="height:60px;margin-top:-10px;"/>&nbsp;<b>PHPEMS</b></h1>
+			</div>
+			<div class="col-xs-1">
+			</div>
+			<div class="col-xs-6" style="padding-top:22px;">
+				<div class="form-inline">
+					<div class="input-group">
+						<div class="input-group-btn">
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								课程 <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="index.php?content-app">新闻</a></li>
+								<li><a href="index.php?course-app">课程</a></li>
+								<li><a href="index.php?docs-app">资料</a></li>
+							</ul>
+						</div>
+						<input type="text" style="width:380px;" class="form-control" id="keyword" placeholder="搜索课程">
+					</div>
+					<button type="button" class="btn btn-primary" onclick="javascript:window.location='index.php?course-app-search&keyword='+$('#keyword').val();"> 搜 索 </button>
+				</div>
+			</div>
+			<div class="col-xs-2" style="padding-top:22px;">
+				<ul class="list-unstyled list-inline">
+										<li>
+						<div class="btn-group">
+							<button type="button" class="btn btn-info"><em class="glyphicon glyphicon-user"></em> songjie</button>
+							<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="caret"></span>
+								<span class="sr-only">Toggle Dropdown</span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="index.php?user-center"><em class="glyphicon glyphicon-user"></em> 用户中心</a></li>
+																								<li><a class="ajax" href="index.php?user-app-logout"><em class="glyphicon glyphicon-log-out"></em> 退出</a></li>
+							</ul>
+						</div>
+					</li>
+									</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid navbar" style="margin-top:0px;margin-bottom:0px;padding-top:10px;background-color:#337AB7;">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="col-xs-12">
+				<ul class="list-unstyled list-inline">
+					<li class="menu col-xs-1"><a href="index.php" class="icon">首页</a></li>
+					<li class="menu col-xs-1"><a href="index.php?course">课程</a></li>
+					<li class="menu col-xs-1 active"><a href="index.php?exam">考试</a></li>
+					<li class="menu col-xs-1"><a href="index.php?docs">文档</a></li>
+					<li class="menu col-xs-1"><a href="index.php?certificate">证书</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div><div class="container-fluid">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="box itembox">
+				<div class="col-xs-12">
+					<ol class="breadcrumb">
+					  <li><a href="index.php">首页</a></li>
+					  <li><a href="index.php?exam-app">考试</a></li>
+					  <li><a href="index.php?exam-app-basics">考场1</a></li>
+					  <li><a href="index.php?exam-app-history">考试记录</a></li>
+					  <li class="active">试卷1</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid" id="questioncontent">
+	<div class="row-fluid">
+		<div class="main box">
+			<div class="col-xs-3" id="questionbar">
+				<dl class="clear" style="width:270px;" data-spy="affix" data-offset-top="235">
+					<dt class="float_l"><h4>&nbsp;</h4></dt>
+					<ul class="nav nav-tabs" role="tablist">
+																																										<li role="presentation" class="active"><a href="#qt_8" aria-controls="home" role="tab" data-toggle="tab">一</a></li>
+																																																<li role="presentation"><a href="#qt_7" aria-controls="home" role="tab" data-toggle="tab">二</a></li>
+																																																<li role="presentation"><a href="#qt_4" aria-controls="home" role="tab" data-toggle="tab">三</a></li>
+																																																<li role="presentation"><a href="#qt_6" aria-controls="home" role="tab" data-toggle="tab">四</a></li>
+																							</ul>
+					<div class="tab-content" style="margin-top:5px;" id="questionindex">
+																																										<div role="tabpanel" class="tab-pane tableindex active" id="qt_8">
+										                			                							<a id="sign_83" href="#question_83" class="btn btn-default">1</a>
+																				</div>
+																																																<div role="tabpanel" class="tab-pane tableindex" id="qt_7">
+										                			                							<a id="sign_32" href="#question_32" class="btn btn-default">1</a>
+																				</div>
+																																																<div role="tabpanel" class="tab-pane tableindex" id="qt_4">
+										                			                							<a id="sign_101" href="#question_101" class="btn btn-default">1</a>
+																				</div>
+																																																<div role="tabpanel" class="tab-pane tableindex" id="qt_6">
+										                			                							<a id="sign_221" href="#question_221" class="btn btn-default">1</a>
+																				</div>
+																							</div>
+				</dl>
+			</div>
+			<div class="col-xs-9 split pull-right" style="padding:0px;position:relative;">
+				<div class="scoreArea">1.00</div>
+				<div class="box itembox">
+					<h2 class="text-center tt">试卷1</h2>
+				</div>
+																												<hr />
+				<div class="box itembox">
+					<blockquote class="questype">一、判断题</blockquote>
+				</div>
+					            	            				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第1题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('83');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_83">
+							<input id="time_83" type="hidden" name="time[83]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>历史上著名的“澶渊之盟”发生在哪两朝之间？					</div>
+															<div class="choice">
+	                	&lt;p&gt;A:太古代&lt;/p&gt;&lt;p&gt;B:古生代&lt;/p&gt;&lt;p&gt;C:元生代&lt;/p&gt;	                </div>
+	                	                					<div class="decidediv" style="position:relative;">
+	                	<div class="wrong"></div>	                	<table class="table table-hover table-bordered">
+            				<tr class="info">
+	                			<th colspan="2" style="border-top:0px;">本题得分：0分</th>
+	                		</tr>
+	                		<tr>
+	                    		<td width="15%">正确答案：</td>
+	                    		<td>A</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>您的答案：</td>
+	                        	<td>B</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>所在章：</td>
+	                    		<td>第一章&nbsp;&nbsp;&nbsp;</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>知识点：</td>
+	                    		<td>英语知识点13&nbsp;&nbsp;&nbsp;</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>答案解析：</td>
+	                    		<td>判断题解析</td>
+	                    	</tr>
+	                	</table>
+	                </div>
+				</div>
+																																								<hr />
+				<div class="box itembox">
+					<blockquote class="questype">二、选择题</blockquote>
+				</div>
+					            	            				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第1题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('32');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_32">
+							<input id="time_32" type="hidden" name="time[32]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>历史上曾有的风雨声对联在：					</div>
+															<div class="choice">
+	                	&lt;p&gt;A:太古代&lt;/p&gt;&lt;p&gt;B:古生代&lt;/p&gt;&lt;p&gt;C:元生代&lt;/p&gt;	                </div>
+	                	                					<div class="decidediv" style="position:relative;">
+	                	<div class="wrong"></div>	                	<table class="table table-hover table-bordered">
+            				<tr class="info">
+	                			<th colspan="2" style="border-top:0px;">本题得分：0分</th>
+	                		</tr>
+	                		<tr>
+	                    		<td width="15%">正确答案：</td>
+	                    		<td>C</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>您的答案：</td>
+	                        	<td>B</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>所在章：</td>
+	                    		<td>第一章&nbsp;&nbsp;&nbsp;第一章&nbsp;&nbsp;&nbsp;</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>知识点：</td>
+	                    		<td>英语知识点4&nbsp;&nbsp;&nbsp;英语知识点5&nbsp;&nbsp;&nbsp;</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>答案解析：</td>
+	                    		<td>问题解析</td>
+	                    	</tr>
+	                	</table>
+	                </div>
+				</div>
+																																								<hr />
+				<div class="box itembox">
+					<blockquote class="questype">三、定值填空</blockquote>
+				</div>
+					            	            				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第1题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('101');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_101">
+							<input id="time_101" type="hidden" name="time[101]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>马王堆一号古墓是（）朝代					</div>
+											                					<div class="decidediv" style="position:relative;">
+	                	<div class="wrong"></div>	                	<table class="table table-hover table-bordered">
+            				<tr class="info">
+	                			<th colspan="2" style="border-top:0px;">本题得分：0分</th>
+	                		</tr>
+	                		<tr>
+	                    		<td width="15%">正确答案：</td>
+	                    		<td></td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>您的答案：</td>
+	                        	<td>djid</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>所在章：</td>
+	                    		<td>第一章&nbsp;&nbsp;&nbsp;</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>知识点：</td>
+	                    		<td>英语知识点7&nbsp;&nbsp;&nbsp;</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>答案解析：</td>
+	                    		<td>定值填空解析</td>
+	                    	</tr>
+	                	</table>
+	                </div>
+				</div>
+																																								<hr />
+				<div class="box itembox">
+					<blockquote class="questype">四、问答题</blockquote>
+				</div>
+					            	            				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第1题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('221');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_221">
+							<input id="time_221" type="hidden" name="time[221]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>四大名楼不包括					</div>
+										<div class="decidediv" style="position:relative;">
+	                	<div class="right"></div>	                	<table class="table table-hover table-bordered">
+            				<tr class="info">
+	                			<th colspan="2" style="border-top:0px;">本题得分：1分</th>
+	                		</tr>
+	                		<tr>
+	                    		<td width="15%">正确答案：</td>
+	                    		<td>简答题答案</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>您的答案：</td>
+	                        	<td><p>dddd</p></td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>所在章：</td>
+	                    		<td>第一章&nbsp;&nbsp;&nbsp;</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>知识点：</td>
+	                    		<td>英语知识点5&nbsp;&nbsp;&nbsp;</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>答案解析：</td>
+	                    		<td>简答题解析</td>
+	                    	</tr>
+	                	</table>
+	                </div>
+				</div>
+																							</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid box" style="background-color:#337AB7;margin-bottom:0px;" id="footer">
+	<div class="row-fluid">
+		<div class="main itembox">
+			<div class="col-xs-12">
+				<ul class="list-unstyled">
+					<li class="text-center"><a href="">PHPEMS在线模拟考试系统 著作权登记号：2013 SR 113189</a></li>
+					<li class="text-center"><a href="">Copyright © phpems.net  2015-2017</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div></body>
+</html>

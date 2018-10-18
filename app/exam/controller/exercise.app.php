@@ -42,7 +42,8 @@ class action extends app
 
 	private function ajax()
 	{
-          
+                echo $this->ev->url(4);
+                var_dump($this->ev->url(4));
 		switch($this->ev->url(4))
 		{
 			//获取剩余考试时间
@@ -61,7 +62,6 @@ class action extends app
 				}
 			}
 			echo $lefttime;
-                        var_dump ($lefttime);
 			exit();
 			break;
 
@@ -398,6 +398,7 @@ class action extends app
 			$this->tpl->assign('questype',$questype);
 			$this->tpl->assign('sessionvars',$sessionvars);
 			$this->tpl->assign('lefttime',$lefttime);
+                        var_dump($lefttime);
 			$this->tpl->assign('donumber',is_array($sessionvars['examsessionuseranswer'])?count($sessionvars['examsessionuseranswer']):0);
 			$this->tpl->display('exercise_paper');
 		}
@@ -470,6 +471,7 @@ class action extends app
 				}
 				else $questionrows[$key][$p] = $this->exam->getQuestionRowsByArgs("qrid = '{$p}'");
 			}
+                    
 			$sargs['examsessionquestion'] = array('questionids'=>$questionids,'questions'=>$questions,'questionrows'=>$questionrows);
 			$sargs['examsessionsetting'] = $args;
 			$sargs['examsessionstarttime'] = TIME;
@@ -484,10 +486,12 @@ class action extends app
 			$sargs['examsessionsign'] = NULL;
 			$sargs['examsessionsign'] = '';
 			$sargs['examsessionuserid'] = $this->_user['sessionuserid'];
+                        
 			if($sessionvars['examsessionid'])
 			$this->exam->modifyExamSession($sargs);
 			else
 			$this->exam->insertExamSession($sargs);
+                        
 			$message = array(
 				'statusCode' => 200,
 				"message" => "抽题成功，正在转入试题页面",

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PHPEMS模拟考试系统后台管理</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/datetimepicker.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/jquery-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/peskin.css" />
+	<!--[if lt IE 9]>
+	<script src="app/core/styles/js/html5shiv.min.js"></script>
+	<script src="app/core/styles/js/respond.min.js"></script>
+	<![endif]-->
+	<script src="app/core/styles/js/jquery.min.js"></script>
+	<script src="app/core/styles/js/jquery-ui.min.js"></script>
+	<script src="app/core/styles/js/bootstrap.min.js"></script>
+	<script src="app/core/styles/js/bootstrap-datetimepicker.js"></script>
+
+	<script src="app/core/styles/js/all.fine-uploader.min.js"></script>
+
+	<script src="app/core/styles/js/ckeditor/ckeditor.js"></script>
+	<script src="app/core/styles/js/plugin.js"></script>
+</head><body>
+<div class="container-fluid box" style="margin:0px auto;padding-top:10px;overflow:visible">	<div class="row-fluid">		<div class="main">			<div class="col-xs-10">				<h2 style="color:#337AB7;"><a href="index.php"><img src="app/core/styles/img/logo2.png" style="height:60px;margin-top:-10px;"/>&nbsp;PHPEMS管理平台</a></h2>			</div>			<div class="col-xs-2" style="padding-top:22px;">				<ul class="list-unstyled list-inline">										<li>						<div class="btn-group">							<button type="button" class="btn btn-info"><em class="glyphicon glyphglyphicon glyphicon-user"></em> peadmin</button>							<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">								<span class="caret"></span>								<span class="sr-only">Toggle Dropdown</span>							</button>							<ul class="dropdown-menu">								<li><a href="index.php?user-center"><em class="glyphicon glyphglyphicon glyphicon-user"></em> 用户中心</a></li>																<li><a href="index.php?core-master"><em class="glyphicon glyphglyphicon glyphicon-dashboard"></em> 后台管理</a></li>								<li><a class="ajax" href="index.php?user-app-logout"><em class="glyphicon glyphglyphicon glyphicon-log-out"></em> 退出</a></li>							</ul>						</div>					</li>									</ul>			</div>		</div>	</div></div><div class="container-fluid navbar" style="margin-top:0px;margin-bottom:0px;padding-top:10px;background-color:#337AB7;">	<div class="row-fluid">		<div class="main">			<div class="col-xs-12">				<ul class="list-unstyled list-inline">					<li class="menu col-xs-1">						<a href="index.php?core-master">全局</a>					</li>																				<li class="menu col-xs-1">						<a href="index.php?user-master">用户模块</a>					</li>																				<li class="menu col-xs-1 active">						<a href="index.php?exam-master">考试模块</a>					</li>																														<li class="menu col-xs-1">						<a href="index.php?document-master">文件模块</a>					</li>																				<li class="menu col-xs-1">						<a href="index.php?content-master">内容模块</a>					</li>																				<li class="menu col-xs-1">						<a href="index.php?bank-master">财务模块</a>					</li>																				<li class="menu col-xs-1">						<a href="index.php?course-master">课程模块</a>					</li>																				<li class="menu col-xs-1">						<a href="index.php?certificate-master">证书模块</a>					</li>																				<li class="menu col-xs-1">						<a href="index.php?docs-master">文档模块</a>					</li>																			</ul>			</div>		</div>	</div></div><div class="container-fluid">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="col-xs-2" style="padding-top:10px;margin-bottom:0px;">
+				<style>.panel-heading a{color:#FFFFFF;text-decoration:none;}</style><div class="panel-group" id="panel-13465">	<div class="panel panel-primary">		<div class="panel-heading">			<a class="panel-toggle text-center" data-parent="#panel-13465" data-toggle="collapse" href="#panel-element-707348">				<em class="glyphicon glyphglyphicon glyphicon-th-large"></em> 考试设计			</a>		</div>		<div id="panel-element-707348" class="panel-collapse collapse" role="tabpanel">     		<ul class="list-group">				<li class="list-group-item"><a href="?exam-master-basic">考场列表</a></li>	    		<li class="list-group-item"><a href="?exam-master-basic-area">地区设置</a></li>	    		<li class="list-group-item"><a href="?exam-master-basic-subject">科目管理</a></li>	    		<li class="list-group-item"><a href="?exam-master-basic-questype">题型管理</a></li>			</ul>		</div>	</div>	<div class="panel panel-primary">		<div class="panel-heading">			<a class="panel-toggle text-center" data-parent="#panel-13465" data-toggle="collapse" href="#panel-element-2120761">				<em class="glyphicon glyphglyphicon glyphicon-user"></em> 课程开通			</a>		</div>		<div id="panel-element-2120761" class="panel-collapse collapse" role="tabpanel">     		<ul class="list-group">				<li class="list-group-item"><a href="index.php?exam-master-users">开通课程</a></li>				<li class="list-group-item"><a href="index.php?exam-master-users-batopen">批量开通</a></li>			</ul>		</div>	</div>	<div class="panel panel-primary">		<div class="panel-heading">			<a class="panel-toggle text-center" data-parent="#panel-13465" data-toggle="collapse" href="#panel-element-212076">				<em class="glyphicon glyphglyphicon glyphicon-text-color"></em> 试题管理			</a>		</div>		<div id="panel-element-212076" class="panel-collapse in collapse" role="tabpanel">     		<ul class="list-group">				<li class="list-group-item"><a href="index.php?exam-master-questions">普通试题管理</a></li>				<li class="list-group-item"><a href="index.php?exam-master-rowsquestions">题帽题管理</a></li>				<li class="list-group-item"><a href="index.php?exam-master-feedback">错题反馈</a></li>			</ul>		</div>	</div>	<div class="panel panel-primary">		<div class="panel-heading">			<a class="panel-toggle text-center" data-parent="#panel-13465" data-toggle="collapse" href="#panel-element-212096">				<em class="glyphicon glyphglyphicon glyphicon-duplicate"></em> 试卷管理			</a>		</div>		<div id="panel-element-212096" class="panel-collapse collapse" role="tabpanel">     		<ul class="list-group">				<li class="list-group-item"><a href="index.php?exam-master-exams">试卷列表</a></li>				<li class="list-group-item"><a href="index.php?exam-master-exams-autopage">随机组卷</a></li>				<li class="list-group-item"><a href="index.php?exam-master-exams-selfpage">手工组卷</a></li>				<li class="list-group-item"><a href="index.php?exam-master-exams-temppage">即时组卷</a></li>			</ul>		</div>	</div>	<div class="panel panel-primary">		<div class="panel-heading">			<a class="panel-toggle text-center" data-parent="#panel-13465" data-toggle="collapse" href="#panel-element-212090">				<em class="glyphicon glyphglyphicon glyphicon-trash"></em> 回收站			</a>		</div>		<div id="panel-element-212090" class="panel-collapse collapse" role="tabpanel">     		<ul class="list-group">				<li class="list-group-item"><a href="index.php?exam-master-recyle">普通试题</a></li>				<li class="list-group-item"><a href="index.php?exam-master-recyle-rows">题帽题</a></li>				<li class="list-group-item"><a href="index.php?exam-master-recyle-knows">知识点</a></li>			</ul>		</div>	</div>	<div class="panel panel-primary">		<div class="panel-heading">			<a class="panel-toggle text-center" data-parent="#panel-13465" data-toggle="collapse" href="#panel-element-2120901">				<em class="glyphicon glyphglyphicon glyphicon-wrench"></em> 批量工具			</a>		</div>		<div id="panel-element-2120901" class="panel-collapse collapse" role="tabpanel">     		<ul class="list-group">				<li class="list-group-item"><a href="index.php?exam-master-tools">删除试题</a></li>				<li class="list-group-item"><a href="index.php?exam-master-tools-clearhistory">清空考试记录</a></li>				<li class="list-group-item"><a href="index.php?exam-master-tools-clearsession">清理会话</a></li>			</ul>		</div>	</div></div>			</div>
+			<div class="col-xs-10" id="datacontent">
+				<div class="box itembox" style="margin-bottom:0px;border-bottom:1px solid #CCCCCC;">
+					<div class="col-xs-12">
+						<ol class="breadcrumb">
+							<li><a href="index.php?exam-master">考试模块</a></li>
+							<li><a href="index.php?exam-master-questions&page=">普通试题管理</a></li>
+							<li class="active">修改普通试题</li>
+						</ol>
+					</div>
+				</div>
+				<div class="box itembox" style="padding-top:10px;margin-bottom:0px;">
+					<h4 class="title" style="padding:10px;">
+						修改普通试题
+						<a class="btn btn-primary pull-right" href="index.php?exam-master-questions&page=">普通试题管理</a>
+					</h4>
+					<form action="index.php?exam-master-questions-modifyquestion" method="post" class="form-horizontal">
+						<fieldset>
+						<div class="form-group">
+							<label class="control-label col-sm-2">知识点：</label>
+						  	<div class="col-sm-9">
+						  		<textarea class="form-control" rows="4" needle="needle" min="1" msg="您最少需要选定一个知识点" name="args[questionknowsid]" id="questionknowsid" readonly>17:英语知识点12
+9:英语知识点5
+29:知识点1
+</textarea>
+							</div>
+						</div>
+						<div class="form-group">
+					  		<label class="control-label col-sm-2"></label>
+					  		<div class="col-sm-9 form-inline">
+						  		<select class="combox form-control" target="isectionselect" refUrl="?exam-master-questions-ajax-getsectionsbysubjectid&subjectid={value}">
+					        		<option value="0">选择科目</option>
+							  									  		<option value="1">数学</option>
+							  									  		<option value="9">英语</option>
+							  								  		</select>
+						  		<select class="combox form-control" id="isectionselect" target="iknowsselect" refUrl="?exam-master-questions-ajax-getknowsbysectionid&sectionid={value}">
+						  			<option value="0">选择章节</option>
+						  		</select>
+						  		<select class="combox form-control" id="iknowsselect">
+						  		<option value="0">选择知识点</option>
+						  		</select>
+							</div>
+						</div>
+						<div class="form-group">
+					  		<label class="control-label col-sm-2"></label>
+					  		<div class="col-sm-9">
+					  			<input type="button" class="btn btn-primary" value="选定" onclick="javascript:setKnowsList('questionknowsid','iknowsselect','+');"/>
+					  			<input type="button" class="btn btn-danger" value="清除" onclick="javascript:setKnowsList('questionknowsid','iknowsselect','-');"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2">题型：</label>
+						  	<div class="col-sm-3">
+							  	<select needle="needle" msg="您必须为要添加的试题选择一种题型" name="args[questiontype]" class="combox form-control" onchange="javascript:setAnswerHtml($(this).find('option:selected').attr('rel'),'answerbox');">
+							  									  		<option rel="4" value="8">判断题</option>
+							  									  		<option rel="2" value="7" selected>选择题</option>
+							  									  		<option rel="5" value="4">定值填空</option>
+							  									  		<option rel="0" value="6">问答题</option>
+							  									  	</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2">题干：</label>
+						  	<div class="col-sm-10">
+							  	<textarea class="ckeditor" name="args[question]" id="question"><p>选择题1</p></textarea>
+							  	<span class="help-block">需要填空处请以()表示。</span>
+							</div>
+						</div>
+						<div class="form-group" id="selecttext">
+							<label class="control-label col-sm-2">备选项：</label>
+						  	<div class="col-sm-10">
+							  	<textarea class="ckeditor" name="args[questionselect]" id="questionselect"><p>A:11</p></textarea>
+							  	<span class="help-block">无选择项的请不要填写，如填空题、问答题等主观题。</span>
+							</div>
+						</div>
+						<div class="form-group" id="selectnumber">
+							<label for="questionselectnumber" class="control-label col-sm-2">备选项数量：</label>
+						  	<div class="col-sm-3">
+							  	<select class="form-control" name="args[questionselectnumber]" id="questionselectnumber">
+							  		<option value="0">0</option>
+							  		<option value="2">2</option>
+							  		<option value="3" selected>3</option>
+							  		<option value="4">4</option>
+							  		<option value="5">5</option>
+							  		<option value="6">6</option>
+							  		<option value="7">7</option>
+							  		<option value="8">8</option>
+							  	</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2">参考答案：</label>
+							<div class="col-sm-9">
+								<div id="answerbox_1" class="answerbox" style="display:none;">
+								  	<label class="radio-inline"><input type="radio" name="targs[questionanswer1]" value="A" checked>A</label>
+								  	<label class="radio-inline"><input type="radio" name="targs[questionanswer1]" value="B">B</label>
+								  	<label class="radio-inline"><input type="radio" name="targs[questionanswer1]" value="C">C</label>
+								  	<label class="radio-inline"><input type="radio" name="targs[questionanswer1]" value="D">D</label>
+								  	<label class="radio-inline"><input type="radio" name="targs[questionanswer1]" value="E">E</label>
+									<label class="radio-inline"><input type="radio" name="targs[questionanswer1]" value="F">F</label>
+								  	<label class="radio-inline"><input type="radio" name="targs[questionanswer1]" value="G">G</label>
+									<label class="radio-inline"><input type="radio" name="targs[questionanswer1]" value="H">H</label>
+								</div>
+								<div id="answerbox_2" class="answerbox">
+								  	<label class="checkbox-inline"><input type="checkbox" name="targs[questionanswer2][]" value="A" checked>A</label>
+								  	<label class="checkbox-inline"><input type="checkbox" name="targs[questionanswer2][]" value="B">B</label>
+								  	<label class="checkbox-inline"><input type="checkbox" name="targs[questionanswer2][]" value="C">C</label>
+								  	<label class="checkbox-inline"><input type="checkbox" name="targs[questionanswer2][]" value="D">D</label>
+								  	<label class="checkbox-inline"><input type="checkbox" name="targs[questionanswer2][]" value="E">E</label>
+									<label class="checkbox-inline"><input type="checkbox" name="targs[questionanswer2][]" value="F">F</label>
+								  	<label class="checkbox-inline"><input type="checkbox" name="targs[questionanswer2][]" value="G">G</label>
+								  	<label class="checkbox-inline"><input type="checkbox" name="targs[questionanswer2][]" value="H">H</label>
+								</div>
+								<div id="answerbox_3" class="answerbox" style="display:none;">
+								  	<label class="checkbox-inline"><input type="checkbox" name="targs[questionanswer3][]" value="A" checked>A</label>
+								  	<label class="checkbox-inline"><input type="checkbox" name="targs[questionanswer3][]" value="B">B</label>
+								  	<label class="checkbox-inline"><input type="checkbox" name="targs[questionanswer3][]" value="C">C</label>
+								  	<label class="checkbox-inline"><input type="checkbox" name="targs[questionanswer3][]" value="D">D</label>
+								  	<label class="checkbox-inline"><input type="checkbox" name="targs[questionanswer3][]" value="E">E</label>
+									<label class="checkbox-inline"><input type="checkbox" name="targs[questionanswer3][]" value="F">F</label>
+								  	<label class="checkbox-inline"><input type="checkbox" name="targs[questionanswer3][]" value="G">G</label>
+								  	<label class="checkbox-inline"><input type="checkbox" name="targs[questionanswer3][]" value="H">H</label>
+								</div>
+								<div id="answerbox_4" class="answerbox" style="display:none;">
+								  	<label class="radio-inline"><input type="radio" name="targs[questionanswer4]" value="A" checked>对</label>
+								  	<label class="radio-inline"><input type="radio" name="targs[questionanswer4]" value="B">错</label>
+								</div>
+								<div id="answerbox_5" class="answerbox" style="display:none;">
+								  	<input type="text" name="targs[questionanswer5]" value="A" />
+								</div>
+								<div id="answerbox_0" style="display:none;" class="answerbox">
+							  		<textarea cols="72" rows="7" class="ckeditor" id="questionanswer0" name="targs[questionanswer0]">A</textarea>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2">习题解析：</label>
+						  	<div class="col-sm-10">
+						  		<textarea class="ckeditor" name="args[questiondescribe]" id="questiondescribe"><p>那dd</p></textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2">难度：</label>
+						  	<div class="col-sm-3">
+							  	<select class="form-control" name="args[questionlevel]" needle="needle" msg="您必须为要添加的试题设置一个难度">
+							  		<option value="1">易</option>
+							  		<option value="2">中</option>
+							  		<option value="3" selected>难</option>
+							  	</select>
+							</div>
+						</div>
+						<div class="form-group">
+						  	<label class="control-label col-sm-2"></label>
+						  	<div class="col-sm-9">
+							  	<button class="btn btn-primary" type="submit">提交</button>
+							  	<input type="hidden" name="page" value=""/>
+							  	<input type="hidden" name="args[questionparent]" value=""/>
+							  	<input type="hidden" name="questionid" value="233"/>
+							  	<input type="hidden" name="modifyquestion" value="1"/>
+							  								</div>
+						</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid box" style="background-color:#337AB7;margin-bottom:0px;" id="footer">
+	<div class="row-fluid">
+		<div class="main itembox">
+			<div class="col-xs-12">
+				<ul class="list-unstyled">
+					<li class="text-center"><a href="">PHPEMS在线模拟考试系统 著作权登记号：2013 SR 113189</a></li>
+					<li class="text-center"><a href="">Copyright © phpems.net  2015-2016</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div></body>
+</html>

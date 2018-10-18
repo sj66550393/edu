@@ -75,7 +75,7 @@
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="content">及格线：</label>
 					  		<div class="col-sm-4">
-					  			<input class="form-control" type="text" name="args[examsetting][passscore]" value="" size="4" needle="needle" msg="你要为本考卷设置一个及格分数线" datatype="number"/>
+					  			<input class="form-control" type="text" name="args[examsetting][pa]" value="" size="4" needle="needle" msg="你要为本考卷设置一个及格分数线" datatype="number"/>
 							</div>
 						</div>
 						<div class="form-group">

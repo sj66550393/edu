@@ -63,6 +63,7 @@ class action extends app
 
 			//获取剩余时间
 			case 'lefttime':
+                             echo "index phone";
 			$sessionvars = $this->exam->getExamSessionBySessionid();
 			$lefttime = TIME - $sessionvars['examsessionstarttime'];
 			if($lefttime < 0 )$lefttime = 0;

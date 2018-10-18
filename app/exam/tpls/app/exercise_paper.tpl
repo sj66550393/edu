@@ -201,7 +201,7 @@
 			</form>
 		</div>
 	</div>
-</div>
+</div>                              
 <div class="modal fade" id="submodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -255,6 +255,8 @@ $(document).ready(function(){
 			}
 		}
 		setting.lefttime = parseInt(data);
+{*                setting.lefttime = 60*60;*}
+{*                alert(data);*}
 		countdown(setting);
 	});
 

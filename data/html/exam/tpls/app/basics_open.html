@@ -1,4 +1,90 @@
-<div class="container-fluid" id="datacontent">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PHPEMS模拟考试系统</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/datetimepicker.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/jquery-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/peskin.css" />
+	<!--[if lt IE 9]>
+	<script src="app/core/styles/js/html5shiv.min.js"></script>
+	<script src="app/core/styles/js/respond.min.js"></script>
+	<![endif]-->
+	<script src="app/core/styles/js/jquery.min.js"></script>
+	<script src="app/core/styles/js/jquery.json.js"></script>
+	<script src="app/core/styles/js/jquery-ui.min.js"></script>
+	<script src="app/core/styles/js/bootstrap.min.js"></script>
+	<script src="app/core/styles/js/bootstrap-datetimepicker.js"></script>
+	<script src="app/core/styles/js/all.fine-uploader.min.js"></script>
+	<script src="app/core/styles/js/ckeditor/js/MathJax.js?config=TeX-AMS_HTML"></script>
+	<script src="app/core/styles/js/ckeditor/ckeditor.js"></script>
+	<script src="app/core/styles/js/plugin.js"></script>
+	<script src="app/exam/styles/js/plugin.js"></script>
+</head><body>
+<div class="container-fluid box" style="margin:0px auto;padding-top:10px;overflow:visible">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="col-xs-3">
+				<h1 style="font-size:42px;color:#337AB7;"><img src="app/core/styles/img/logo2.png" style="height:60px;margin-top:-10px;"/>&nbsp;<b>PHPEMS</b></h1>
+			</div>
+			<div class="col-xs-1">
+			</div>
+			<div class="col-xs-6" style="padding-top:22px;">
+				<div class="form-inline">
+					<div class="input-group">
+						<div class="input-group-btn">
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								课程 <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="index.php?content-app">新闻</a></li>
+								<li><a href="index.php?course-app">课程</a></li>
+								<li><a href="index.php?docs-app">资料</a></li>
+							</ul>
+						</div>
+						<input type="text" style="width:380px;" class="form-control" id="keyword" placeholder="搜索课程">
+					</div>
+					<button type="button" class="btn btn-primary" onclick="javascript:window.location='index.php?course-app-search&keyword='+$('#keyword').val();"> 搜 索 </button>
+				</div>
+			</div>
+			<div class="col-xs-2" style="padding-top:22px;">
+				<ul class="list-unstyled list-inline">
+										<li>
+						<div class="btn-group">
+							<button type="button" class="btn btn-info"><em class="glyphicon glyphicon-user"></em> songjie</button>
+							<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="caret"></span>
+								<span class="sr-only">Toggle Dropdown</span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="index.php?user-center"><em class="glyphicon glyphicon-user"></em> 用户中心</a></li>
+																								<li><a class="ajax" href="index.php?user-app-logout"><em class="glyphicon glyphicon-log-out"></em> 退出</a></li>
+							</ul>
+						</div>
+					</li>
+									</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid navbar" style="margin-top:0px;margin-bottom:0px;padding-top:10px;background-color:#337AB7;">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="col-xs-12">
+				<ul class="list-unstyled list-inline">
+					<li class="menu col-xs-1"><a href="index.php" class="icon">首页</a></li>
+					<li class="menu col-xs-1"><a href="index.php?course">课程</a></li>
+					<li class="menu col-xs-1 active"><a href="index.php?exam">考试</a></li>
+					<li class="menu col-xs-1"><a href="index.php?docs">文档</a></li>
+					<li class="menu col-xs-1"><a href="index.php?certificate">证书</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div><div class="container-fluid" id="datacontent">
 	<div class="row-fluid">
 		<div class="main box itembox">
 			<h4 class="title" style="padding:10px;">考场列表<a href="index.php?exam-app" class="btn btn-primary pull-right"><em class="glyphicon glyphicon-tasks"></em> 我的考场</a></h4>
@@ -11,14 +97,14 @@
 						<td>
 							<select name="search[basicdemo]" class="form-control">
 								<option value="0">不限</option>
-								<option value="1" selected>免费</option>
+								<option value="1">免费</option>
 							</select>
 						</td>
 						<td>
 							<label>关键字：</label>
 						</td>
 						<td>
-							<input class="form-control" name="search[keyword]" type="text" value="1234" />
+							<input class="form-control" name="search[keyword]" type="text" value="" />
 						</td>
 						<td></td>
 					</tr>
@@ -29,7 +115,7 @@
 						<td>
 							<select name="search[basicareaid]" class="form-control">
 								<option value="0">选择地区</option>
-														  		<option value="1" selected>全国</option>
+														  		<option value="1">全国</option>
 						  								  		<option value="3">河南</option>
 						  								  		<option value="4">北京</option>
 						  								  		<option value="5">陕西</option>
@@ -64,7 +150,7 @@
 						<td>
 							<select name="search[basicsubjectid]" class="form-control">
 								<option value="0">选择科目</option>
-														  		<option value="1" selected>数学</option>
+														  		<option value="1">数学</option>
 						  								  		<option value="9">英语</option>
 						  									</select>
 						</td>
@@ -75,7 +161,23 @@
 				</table>
 			</form>
 			<div class="col-xs-12" style="padding-left:0px;">
-							</div>
+								<div class="col-xs-3" style="width:20%">
+					<a href="index.php?exam-app-basics-detail&basicid=2" class="thumbnail" style="position:relative;">
+												<img src="app/core/styles/img/free.png" style="position:absolute;right:4px;top:4px;">
+												<img src="app/core/styles/images/noimage.gif" alt="" width="100%">
+					</a>
+					<h5 class="text-center">
+						考场1					</h5>
+				</div>
+												<div class="col-xs-3" style="width:20%">
+					<a href="index.php?exam-app-basics-detail&basicid=1" class="thumbnail" style="position:relative;">
+												<img src="app/core/styles/img/opened.png" style="position:absolute;right:4px;top:4px;">
+												<img src="app/core/styles/images/noimage.gif" alt="" width="100%">
+					</a>
+					<h5 class="text-center">
+						测试					</h5>
+				</div>
+											</div>
 			<div class="col-xs-12" style="padding-left:0px;">
 				<ul class="pagination pull-right">
 									</ul>
@@ -83,3 +185,16 @@
 		</div>
 	</div>
 </div>
+<div class="container-fluid box" style="background-color:#337AB7;margin-bottom:0px;" id="footer">
+	<div class="row-fluid">
+		<div class="main itembox">
+			<div class="col-xs-12">
+				<ul class="list-unstyled">
+					<li class="text-center"><a href="">PHPEMS在线模拟考试系统 著作权登记号：2013 SR 113189</a></li>
+					<li class="text-center"><a href="">Copyright © phpems.net  2015-2017</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div></body>
+</html>

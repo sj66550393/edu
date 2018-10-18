@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PHPEMS模拟考试系统后台管理</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/datetimepicker.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/jquery-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/peskin.css" />
+	<!--[if lt IE 9]>
+	<script src="app/core/styles/js/html5shiv.min.js"></script>
+	<script src="app/core/styles/js/respond.min.js"></script>
+	<![endif]-->
+	<script src="app/core/styles/js/jquery.min.js"></script>
+	<script src="app/core/styles/js/jquery-ui.min.js"></script>
+	<script src="app/core/styles/js/bootstrap.min.js"></script>
+	<script src="app/core/styles/js/bootstrap-datetimepicker.js"></script>
+
+	<script src="app/core/styles/js/all.fine-uploader.min.js"></script>
+
+	<script src="app/core/styles/js/ckeditor/ckeditor.js"></script>
+	<script src="app/core/styles/js/plugin.js"></script>
+</head><body>
+<div class="container-fluid box" style="margin:0px auto;padding-top:10px;overflow:visible">	<div class="row-fluid">		<div class="main">			<div class="col-xs-10">				<h2 style="color:#337AB7;"><a href="index.php"><img src="app/core/styles/img/logo2.png" style="height:60px;margin-top:-10px;"/>&nbsp;PHPEMS管理平台</a></h2>			</div>			<div class="col-xs-2" style="padding-top:22px;">				<ul class="list-unstyled list-inline">										<li>						<div class="btn-group">							<button type="button" class="btn btn-info"><em class="glyphicon glyphglyphicon glyphicon-user"></em> peadmin</button>							<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">								<span class="caret"></span>								<span class="sr-only">Toggle Dropdown</span>							</button>							<ul class="dropdown-menu">								<li><a href="index.php?user-center"><em class="glyphicon glyphglyphicon glyphicon-user"></em> 用户中心</a></li>																<li><a href="index.php?core-master"><em class="glyphicon glyphglyphicon glyphicon-dashboard"></em> 后台管理</a></li>								<li><a class="ajax" href="index.php?user-app-logout"><em class="glyphicon glyphglyphicon glyphicon-log-out"></em> 退出</a></li>							</ul>						</div>					</li>									</ul>			</div>		</div>	</div></div><div class="container-fluid navbar" style="margin-top:0px;margin-bottom:0px;padding-top:10px;background-color:#337AB7;">	<div class="row-fluid">		<div class="main">			<div class="col-xs-12">				<ul class="list-unstyled list-inline">					<li class="menu col-xs-1">						<a href="index.php?core-master">全局</a>					</li>																				<li class="menu col-xs-1">						<a href="index.php?user-master">用户模块</a>					</li>																				<li class="menu col-xs-1 active">						<a href="index.php?exam-master">考试模块</a>					</li>																														<li class="menu col-xs-1">						<a href="index.php?document-master">文件模块</a>					</li>																				<li class="menu col-xs-1">						<a href="index.php?content-master">内容模块</a>					</li>																				<li class="menu col-xs-1">						<a href="index.php?bank-master">财务模块</a>					</li>																				<li class="menu col-xs-1">						<a href="index.php?course-master">课程模块</a>					</li>																				<li class="menu col-xs-1">						<a href="index.php?certificate-master">证书模块</a>					</li>																				<li class="menu col-xs-1">						<a href="index.php?docs-master">文档模块</a>					</li>																			</ul>			</div>		</div>	</div></div><div class="container-fluid">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="col-xs-2" style="padding-top:10px;margin-bottom:0px;">
+				<style>.panel-heading a{color:#FFFFFF;text-decoration:none;}</style><div class="panel-group" id="panel-13465">	<div class="panel panel-primary">		<div class="panel-heading">			<a class="panel-toggle text-center" data-parent="#panel-13465" data-toggle="collapse" href="#panel-element-707348">				<em class="glyphicon glyphglyphicon glyphicon-th-large"></em> 考试设计			</a>		</div>		<div id="panel-element-707348" class="panel-collapse collapse" role="tabpanel">     		<ul class="list-group">				<li class="list-group-item"><a href="?exam-master-basic">考场列表</a></li>	    		<li class="list-group-item"><a href="?exam-master-basic-area">地区设置</a></li>	    		<li class="list-group-item"><a href="?exam-master-basic-subject">科目管理</a></li>	    		<li class="list-group-item"><a href="?exam-master-basic-questype">题型管理</a></li>			</ul>		</div>	</div>	<div class="panel panel-primary">		<div class="panel-heading">			<a class="panel-toggle text-center" data-parent="#panel-13465" data-toggle="collapse" href="#panel-element-2120761">				<em class="glyphicon glyphglyphicon glyphicon-user"></em> 课程开通			</a>		</div>		<div id="panel-element-2120761" class="panel-collapse in collapse" role="tabpanel">     		<ul class="list-group">				<li class="list-group-item"><a href="index.php?exam-master-users">开通课程</a></li>				<li class="list-group-item"><a href="index.php?exam-master-users-batopen">批量开通</a></li>			</ul>		</div>	</div>	<div class="panel panel-primary">		<div class="panel-heading">			<a class="panel-toggle text-center" data-parent="#panel-13465" data-toggle="collapse" href="#panel-element-212076">				<em class="glyphicon glyphglyphicon glyphicon-text-color"></em> 试题管理			</a>		</div>		<div id="panel-element-212076" class="panel-collapse collapse" role="tabpanel">     		<ul class="list-group">				<li class="list-group-item"><a href="index.php?exam-master-questions">普通试题管理</a></li>				<li class="list-group-item"><a href="index.php?exam-master-rowsquestions">题帽题管理</a></li>				<li class="list-group-item"><a href="index.php?exam-master-feedback">错题反馈</a></li>			</ul>		</div>	</div>	<div class="panel panel-primary">		<div class="panel-heading">			<a class="panel-toggle text-center" data-parent="#panel-13465" data-toggle="collapse" href="#panel-element-212096">				<em class="glyphicon glyphglyphicon glyphicon-duplicate"></em> 试卷管理			</a>		</div>		<div id="panel-element-212096" class="panel-collapse collapse" role="tabpanel">     		<ul class="list-group">				<li class="list-group-item"><a href="index.php?exam-master-exams">试卷列表</a></li>				<li class="list-group-item"><a href="index.php?exam-master-exams-autopage">随机组卷</a></li>				<li class="list-group-item"><a href="index.php?exam-master-exams-selfpage">手工组卷</a></li>				<li class="list-group-item"><a href="index.php?exam-master-exams-temppage">即时组卷</a></li>			</ul>		</div>	</div>	<div class="panel panel-primary">		<div class="panel-heading">			<a class="panel-toggle text-center" data-parent="#panel-13465" data-toggle="collapse" href="#panel-element-212090">				<em class="glyphicon glyphglyphicon glyphicon-trash"></em> 回收站			</a>		</div>		<div id="panel-element-212090" class="panel-collapse collapse" role="tabpanel">     		<ul class="list-group">				<li class="list-group-item"><a href="index.php?exam-master-recyle">普通试题</a></li>				<li class="list-group-item"><a href="index.php?exam-master-recyle-rows">题帽题</a></li>				<li class="list-group-item"><a href="index.php?exam-master-recyle-knows">知识点</a></li>			</ul>		</div>	</div>	<div class="panel panel-primary">		<div class="panel-heading">			<a class="panel-toggle text-center" data-parent="#panel-13465" data-toggle="collapse" href="#panel-element-2120901">				<em class="glyphicon glyphglyphicon glyphicon-wrench"></em> 批量工具			</a>		</div>		<div id="panel-element-2120901" class="panel-collapse collapse" role="tabpanel">     		<ul class="list-group">				<li class="list-group-item"><a href="index.php?exam-master-tools">删除试题</a></li>				<li class="list-group-item"><a href="index.php?exam-master-tools-clearhistory">清空考试记录</a></li>				<li class="list-group-item"><a href="index.php?exam-master-tools-clearsession">清理会话</a></li>			</ul>		</div>	</div></div>			</div>
+			<div class="col-xs-10" id="datacontent">
+				<div class="box itembox" style="margin-bottom:0px;border-bottom:1px solid #CCCCCC;">
+					<div class="col-xs-12">
+						<ol class="breadcrumb">
+							<li><a href="index.php?exam-master">考试模块</a></li>
+							<li><a href="index.php?exam-master-users">开通课程</a></li>
+							<li class="active">课程选择</li>
+						</ol>
+					</div>
+				</div>
+				<div class="box itembox" style="padding-top:10px;margin-bottom:0px;">
+					<h4 class="title" style="padding:10px;">
+						课程选择
+						<a class="btn btn-primary pull-right" href="index.php?exam-master-users">开通课程</a>
+					</h4>
+			        <form action="index.php?exam-master-users-basics&userid=14" method="post" class="form-inline">
+						<table class="table">
+							<thead>
+								<tr>
+									<th colspan="6">搜索</th>
+								</tr>
+							</thead>
+							<tr>
+								<td>
+									考场ID：
+								</td>
+								<td>
+									<input class="form-control" name="search[basicid]" class="inline" type="text" class="number" value=""/>
+								</td>
+								<td>
+									关键字：
+								</td>
+								<td>
+									<input class="form-control" name="search[keyword]" type="text" value=""/>
+								</td>
+								<td>
+									地区：
+								</td>
+					        	<td>
+					        		<select class="form-control" name="search[basicareaid]">
+					        		<option value="0">选择地区</option>
+							  									  		<option value="1">全国</option>
+							  									  		<option value="3">河南</option>
+							  									  		<option value="4">北京</option>
+							  									  		<option value="5">陕西</option>
+							  									  		<option value="6">河北</option>
+							  									  		<option value="7">天津</option>
+							  									  		<option value="8">山东</option>
+							  									  		<option value="9">江苏</option>
+							  									  		<option value="10">湖北</option>
+							  									  		<option value="11">辽宁</option>
+							  									  		<option value="12">贵州</option>
+							  									  		<option value="13">北京春雪</option>
+							  									  		<option value="14">云南</option>
+							  									  		<option value="15">四川</option>
+							  									  		<option value="16">安徽</option>
+							  									  		<option value="17">深圳</option>
+							  									  		<option value="18">吉林</option>
+							  									  		<option value="19">广东</option>
+							  									  		<option value="20">新疆</option>
+							  									  		<option value="21">广西</option>
+							  									  		<option value="22">福建</option>
+							  									  		<option value="23">湖南</option>
+							  									  		<option value="24">上海</option>
+							  									  		<option value="25">重庆</option>
+							  									  		<option value="26">江西</option>
+							  									  		<option value="27">浙江</option>
+							  									  		<option value="28">山西</option>
+							  									  		</select>
+					        	</td>
+					        </tr>
+					        <tr>
+					        	<td>
+									API标识：
+								</td>
+								<td>
+									<input class="form-control" name="search[basicapi]" type="text" value=""/>
+								</td>
+								<td>
+									科目：
+								</td>
+								<td>
+					        		<select class="form-control" name="search[basicsubjectid]">
+					        		<option value="0">选择科目</option>
+							  									  		<option value="1">数学</option>
+							  									  		<option value="9">英语</option>
+							  									  		</select>
+					        	</td>
+								<td>
+									<button class="btn btn-primary" type="submit">搜索</button>
+									<input type="hidden" value="1" name="search[argsmodel]" />
+								</td>
+								<td></td>
+							</tr>
+						</table>
+					</form>
+			        <table class="table table-hover table-bordered">
+						<thead>
+							<tr class="info">
+			                    <th>考场ID</th>
+						        <th>考场名称</th>
+						        <th>考场地区</th>
+						        <th>考试科目</th>
+						        <th>到期时间</th>
+						        <th>操作</th>
+			                </tr>
+			            </thead>
+			            <tbody>
+		                    			        	</tbody>
+			        </table>
+			        <ul class="pagination pull-right">
+			            			        </ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid box" style="background-color:#337AB7;margin-bottom:0px;" id="footer">
+	<div class="row-fluid">
+		<div class="main itembox">
+			<div class="col-xs-12">
+				<ul class="list-unstyled">
+					<li class="text-center"><a href="">PHPEMS在线模拟考试系统 著作权登记号：2013 SR 113189</a></li>
+					<li class="text-center"><a href="">Copyright © phpems.net  2015-2016</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div></body>
+</html>

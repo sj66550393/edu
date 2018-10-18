@@ -43,7 +43,6 @@ class action extends app
 
 	private function ajax()
 	{
-            echo "ajax index";
 		switch($this->ev->url(4))
 		{
 			//根据章节获取知识点信息
@@ -64,10 +63,12 @@ class action extends app
 
 			//获取剩余时间
 			case 'lefttime':
+                            
 			$sessionvars = $this->exam->getExamSessionBySessionid();
 			$lefttime = TIME - $sessionvars['examsessionstarttime'];
 			if($lefttime < 0 )$lefttime = 0;
 			exit("{$lefttime}");
+                        exit("60");
 			break;
 
 			//根据科目获取章节信息

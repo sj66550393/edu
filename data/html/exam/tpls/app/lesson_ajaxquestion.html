@@ -1,0 +1,54 @@
+						<h4 class="title">
+				第1题
+				<span class="pull-right">
+					<a class="btn btn-primary qicon" onclick="javascript:favorquestion('8');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+					<a class="btn btn-primary qicon" onclick="javascript:reporterror('8');"><i class="glyphicon glyphicon-erase"></i></a>
+				</span>
+			</h4>
+			<div class="choice">
+				</a>浪漫主义诗人济慈在世活了多少年			</div>
+									<div class="choice">
+            	&lt;p&gt;A:太古代&lt;/p&gt;&lt;p&gt;B:古生代&lt;/p&gt;&lt;p&gt;C:元生代&lt;/p&gt;            </div>
+            			<div class="selector">
+            	                                                            <label class="checkbox-inline"><input type="checkbox" name="question[8][0]" rel="8" value="A" />A </label>
+                                                            <label class="checkbox-inline"><input type="checkbox" name="question[8][1]" rel="8" value="B" />B </label>
+                                                            <label class="checkbox-inline"><input type="checkbox" name="question[8][2]" rel="8" value="C" />C </label>
+                                                            <label class="checkbox-inline"><input type="checkbox" name="question[8][3]" rel="8" value="D" />D </label>
+                                                                                        </div>
+						<div class="choice" style="margin-top:20px;overflow:hidden;">
+				<div class="btn-group hide answerbox pull-right">
+            							<a class="btn btn-primary ajax" target="questionpanel" href="index.php?exam-app-lesson-ajax-questions&number=2" title="下一题">下一题</a>
+            	</div>
+            	<div class="btn-group pull-right">
+            		<a class="btn btn-primary questionbtn" href="javascript:;" onclick="javascript:$('.questionbtn').addClass('hide');$('.answerbox').removeClass('hide');" title="查看答案">查看答案</a>
+            	</div>
+        	</div>
+			<div class="answerbox hide" style="margin-top:1rem;">
+				<table class="table table-hover table-bordered">
+            		<tr class="info">
+                		<td width="15%">正确答案：</td>
+                		<td>B</td>
+                	</tr>
+                	<tr>
+                		<td>答案解析：</td>
+                		<td>问题解析</td>
+                	</tr>
+            	</table>
+			</div>
+			<div id="rightanswer_8" class="hide">B</div>
+					<script type="text/javascript">
+			$("input:radio").click(function(){
+				var _this = $(this);
+				var qid = _this.attr('rel');
+				_this.parents('.selector').parent().find('.questionbtn').addClass('hide');
+				_this.parents('.selector').parent().find('.answerbox').removeClass('hide');
+				if(_this.val() == $("#rightanswer_"+qid).html())
+				{
+					_this.parents('.selector').addClass('alert-success').addClass('alert').html('恭喜您回答正确！');
+				}
+				else
+				{
+					_this.parents('.selector').addClass('alert-danger').addClass('alert').html('回答错误，正确答案为：'+$("#rightanswer_"+qid).html()+'，您选择的答案是：'+_this.val());
+				}
+			});
+		</script>

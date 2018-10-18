@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PHPEMS模拟考试系统</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/datetimepicker.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/jquery-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/peskin.css" />
+	<!--[if lt IE 9]>
+	<script src="app/core/styles/js/html5shiv.min.js"></script>
+	<script src="app/core/styles/js/respond.min.js"></script>
+	<![endif]-->
+	<script src="app/core/styles/js/jquery.min.js"></script>
+	<script src="app/core/styles/js/jquery.json.js"></script>
+	<script src="app/core/styles/js/jquery-ui.min.js"></script>
+	<script src="app/core/styles/js/bootstrap.min.js"></script>
+	<script src="app/core/styles/js/bootstrap-datetimepicker.js"></script>
+	<script src="app/core/styles/js/all.fine-uploader.min.js"></script>
+	<script src="app/core/styles/js/ckeditor/js/MathJax.js?config=TeX-AMS_HTML"></script>
+	<script src="app/core/styles/js/ckeditor/ckeditor.js"></script>
+	<script src="app/core/styles/js/plugin.js"></script>
+	<script src="app/exam/styles/js/plugin.js"></script>
+</head><body data-spy="scroll" data-target="#myScrollspy">
+<div class="container-fluid" id="questioncontent">
+	<div class="row-fluid">
+		<div class="main box">
+			<div class="col-xs-3" id="questionbar">
+				<dl class="clear" style="width:270px;" data-spy="affix" data-offset-top="235" id="questionindex">
+					<dd>
+						<h2><a class="btn btn-danger col-xs-12" style="font-size:1.2em;"><span id="timer_h">00</span>：<span id="timer_m">00</span>：<span id="timer_s">00</span></a></h2>
+					</dd>
+					<dt class="float_l"><h4>&nbsp;</h4></dt>
+					<ul class="nav nav-tabs" role="tablist">
+																																																																														<li role="presentation" class="active"><a href="#qt_7" aria-controls="home" role="tab" data-toggle="tab">一</a></li>
+																																																						<li role="presentation"><a href="#qt_4" aria-controls="home" role="tab" data-toggle="tab">二</a></li>
+																																																						<li role="presentation"><a href="#qt_6" aria-controls="home" role="tab" data-toggle="tab">三</a></li>
+																							</ul>
+					<div class="tab-content" style="margin-top:5px;" id="questionindex">
+																																																																														<div role="tabpanel" class="tab-pane tableindex active" id="qt_7">
+										                			                			                							<a id="sign_11" href="javascript:;" onclick="javascript:gotoquestion('11')" class="btn btn-default">1</a>
+										                			                							<a id="sign_12" href="javascript:;" onclick="javascript:gotoquestion('12')" class="btn btn-default">2</a>
+										                			                							<a id="sign_32" href="javascript:;" onclick="javascript:gotoquestion('32')" class="btn btn-default">3</a>
+										                			                							<a id="sign_67" href="javascript:;" onclick="javascript:gotoquestion('67')" class="btn btn-default">4</a>
+										                			                							<a id="sign_68" href="javascript:;" onclick="javascript:gotoquestion('68')" class="btn btn-default">5</a>
+										                			                							<a id="sign_117" href="javascript:;" onclick="javascript:gotoquestion('117')" class="btn btn-default">6</a>
+										                			                							<a id="sign_118" href="javascript:;" onclick="javascript:gotoquestion('118')" class="btn btn-default">7</a>
+										                			                							<a id="sign_167" href="javascript:;" onclick="javascript:gotoquestion('167')" class="btn btn-default">8</a>
+										                			                							<a id="sign_168" href="javascript:;" onclick="javascript:gotoquestion('168')" class="btn btn-default">9</a>
+																				</div>
+																																																<div role="tabpanel" class="tab-pane tableindex" id="qt_4">
+										                			                			                							<a id="sign_100" href="javascript:;" onclick="javascript:gotoquestion('100')" class="btn btn-default">1</a>
+										                			                							<a id="sign_150" href="javascript:;" onclick="javascript:gotoquestion('150')" class="btn btn-default">2</a>
+																				</div>
+																																																<div role="tabpanel" class="tab-pane tableindex" id="qt_6">
+										                			                			                							<a id="sign_221" href="javascript:;" onclick="javascript:gotoquestion('221')" class="btn btn-default">1</a>
+																				</div>
+																							</div>
+				</dl>
+			</div>
+			<form id="form1" name="form1" method="post" action="index.php?exam-app-exercise-score" class="col-xs-9 split pull-right" style="padding:0px;">
+				<div class="box itembox">
+					<h2 class="text-center">13</h2>
+				</div>
+																																																				<div class="box itembox questionpanel" id="questype_7">
+					<blockquote class="questype">一、选择题</blockquote>
+				</div>
+				                                                				<div class="box itembox paperexamcontent" id="questions_11" rel="7">
+					<h4 class="title">
+						第1题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('11');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('11',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_11">
+							<input id="time_11" type="hidden" name="time[11]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>历史上曾有的风雨声对联在：					</div>
+															<div class="choice">
+                    	&lt;p&gt;A:太古代&lt;/p&gt;&lt;p&gt;B:古生代&lt;/p&gt;&lt;p&gt;C:元生代&lt;/p&gt;                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[11][0]" rel="11" value="A" />A </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[11][1]" rel="11" value="B" />B </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[11][2]" rel="11" value="C" />C </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[11][3]" rel="11" value="D" />D </label>
+	                        	                        	                                                                    </div>
+										<div class="toolbar">
+																		<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(1);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+											</div>
+				</div>
+				                                				<div class="box itembox paperexamcontent" id="questions_12" rel="7">
+					<h4 class="title">
+						第2题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('12');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('12',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_12">
+							<input id="time_12" type="hidden" name="time[12]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>临终前三呼过河的南宋抗金将领名将：					</div>
+															<div class="choice">
+                    	&lt;p&gt;A:太古代&lt;/p&gt;&lt;p&gt;B:古生代&lt;/p&gt;&lt;p&gt;C:元生代&lt;/p&gt;                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[12][0]" rel="12" value="A" />A </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[12][1]" rel="12" value="B" />B </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[12][2]" rel="12" value="C" />C </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[12][3]" rel="12" value="D" />D </label>
+	                        	                        	                                                                    </div>
+										<div class="toolbar">
+												<a class="btn btn-default" onclick="javascript:gotoindexquestion(0);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																		<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(2);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+											</div>
+				</div>
+				                                				<div class="box itembox paperexamcontent" id="questions_32" rel="7">
+					<h4 class="title">
+						第3题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('32');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('32',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_32">
+							<input id="time_32" type="hidden" name="time[32]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>历史上曾有的风雨声对联在：					</div>
+															<div class="choice">
+                    	&lt;p&gt;A:太古代&lt;/p&gt;&lt;p&gt;B:古生代&lt;/p&gt;&lt;p&gt;C:元生代&lt;/p&gt;                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[32][0]" rel="32" value="A" />A </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[32][1]" rel="32" value="B" />B </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[32][2]" rel="32" value="C" />C </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[32][3]" rel="32" value="D" />D </label>
+	                        	                        	                                                                    </div>
+										<div class="toolbar">
+												<a class="btn btn-default" onclick="javascript:gotoindexquestion(1);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																		<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(3);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+											</div>
+				</div>
+				                                				<div class="box itembox paperexamcontent" id="questions_67" rel="7">
+					<h4 class="title">
+						第4题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('67');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('67',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_67">
+							<input id="time_67" type="hidden" name="time[67]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>历史上曾有的风雨声对联在：					</div>
+															<div class="choice">
+                    	&lt;p&gt;A:太古代&lt;/p&gt;&lt;p&gt;B:古生代&lt;/p&gt;&lt;p&gt;C:元生代&lt;/p&gt;                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[67][0]" rel="67" value="A" />A </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[67][1]" rel="67" value="B" />B </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[67][2]" rel="67" value="C" />C </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[67][3]" rel="67" value="D" />D </label>
+	                        	                        	                                                                    </div>
+										<div class="toolbar">
+												<a class="btn btn-default" onclick="javascript:gotoindexquestion(2);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																		<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(4);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+											</div>
+				</div>
+				                                				<div class="box itembox paperexamcontent" id="questions_68" rel="7">
+					<h4 class="title">
+						第5题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('68');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('68',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_68">
+							<input id="time_68" type="hidden" name="time[68]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>临终前三呼过河的南宋抗金将领名将：					</div>
+															<div class="choice">
+                    	&lt;p&gt;A:太古代&lt;/p&gt;&lt;p&gt;B:古生代&lt;/p&gt;&lt;p&gt;C:元生代&lt;/p&gt;                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[68][0]" rel="68" value="A" />A </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[68][1]" rel="68" value="B" />B </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[68][2]" rel="68" value="C" />C </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[68][3]" rel="68" value="D" />D </label>
+	                        	                        	                                                                    </div>
+										<div class="toolbar">
+												<a class="btn btn-default" onclick="javascript:gotoindexquestion(3);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																		<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(5);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+											</div>
+				</div>
+				                                				<div class="box itembox paperexamcontent" id="questions_117" rel="7">
+					<h4 class="title">
+						第6题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('117');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('117',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_117">
+							<input id="time_117" type="hidden" name="time[117]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>历史上曾有的风雨声对联在：					</div>
+															<div class="choice">
+                    	&lt;p&gt;A:太古代&lt;/p&gt;&lt;p&gt;B:古生代&lt;/p&gt;&lt;p&gt;C:元生代&lt;/p&gt;                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[117][0]" rel="117" value="A" />A </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[117][1]" rel="117" value="B" />B </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[117][2]" rel="117" value="C" />C </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[117][3]" rel="117" value="D" />D </label>
+	                        	                        	                                                                    </div>
+										<div class="toolbar">
+												<a class="btn btn-default" onclick="javascript:gotoindexquestion(4);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																		<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(6);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+											</div>
+				</div>
+				                                				<div class="box itembox paperexamcontent" id="questions_118" rel="7">
+					<h4 class="title">
+						第7题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('118');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('118',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_118">
+							<input id="time_118" type="hidden" name="time[118]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>临终前三呼过河的南宋抗金将领名将：					</div>
+															<div class="choice">
+                    	&lt;p&gt;A:太古代&lt;/p&gt;&lt;p&gt;B:古生代&lt;/p&gt;&lt;p&gt;C:元生代&lt;/p&gt;                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[118][0]" rel="118" value="A" />A </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[118][1]" rel="118" value="B" />B </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[118][2]" rel="118" value="C" />C </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[118][3]" rel="118" value="D" />D </label>
+	                        	                        	                                                                    </div>
+										<div class="toolbar">
+												<a class="btn btn-default" onclick="javascript:gotoindexquestion(5);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																		<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(7);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+											</div>
+				</div>
+				                                				<div class="box itembox paperexamcontent" id="questions_167" rel="7">
+					<h4 class="title">
+						第8题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('167');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('167',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_167">
+							<input id="time_167" type="hidden" name="time[167]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>历史上曾有的风雨声对联在：					</div>
+															<div class="choice">
+                    	&lt;p&gt;A:太古代&lt;/p&gt;&lt;p&gt;B:古生代&lt;/p&gt;&lt;p&gt;C:元生代&lt;/p&gt;                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[167][0]" rel="167" value="A" />A </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[167][1]" rel="167" value="B" />B </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[167][2]" rel="167" value="C" />C </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[167][3]" rel="167" value="D" />D </label>
+	                        	                        	                                                                    </div>
+										<div class="toolbar">
+												<a class="btn btn-default" onclick="javascript:gotoindexquestion(6);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																		<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(8);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+											</div>
+				</div>
+				                                				<div class="box itembox paperexamcontent" id="questions_168" rel="7">
+					<h4 class="title">
+						第9题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('168');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('168',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_168">
+							<input id="time_168" type="hidden" name="time[168]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>临终前三呼过河的南宋抗金将领名将：					</div>
+															<div class="choice">
+                    	&lt;p&gt;A:太古代&lt;/p&gt;&lt;p&gt;B:古生代&lt;/p&gt;&lt;p&gt;C:元生代&lt;/p&gt;                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[168][0]" rel="168" value="A" />A </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[168][1]" rel="168" value="B" />B </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[168][2]" rel="168" value="C" />C </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[168][3]" rel="168" value="D" />D </label>
+	                        	                        	                                                                    </div>
+										<div class="toolbar">
+												<a class="btn btn-default" onclick="javascript:gotoindexquestion(7);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																		<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(9);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+											</div>
+				</div>
+																																								<div class="box itembox questionpanel" id="questype_4">
+					<blockquote class="questype">二、定值填空</blockquote>
+				</div>
+				                                                				<div class="box itembox paperexamcontent" id="questions_100" rel="4">
+					<h4 class="title">
+						第1题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('100');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('100',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_100">
+							<input id="time_100" type="hidden" name="time[100]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>司马光，司马迁，司马昭，司马懿，那位司马先生出生最早（）					</div>
+															<div class="selector">
+                    	                        	<input type="text" style="width:100%;height:2em;" name="question[100]" value="" rel="100"/>
+                                            </div>
+										<div class="toolbar">
+												<a class="btn btn-default" onclick="javascript:gotoindexquestion(8);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																		<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(10);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+											</div>
+				</div>
+				                                				<div class="box itembox paperexamcontent" id="questions_150" rel="4">
+					<h4 class="title">
+						第2题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('150');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('150',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_150">
+							<input id="time_150" type="hidden" name="time[150]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>司马光，司马迁，司马昭，司马懿，那位司马先生出生最早（）					</div>
+															<div class="selector">
+                    	                        	<input type="text" style="width:100%;height:2em;" name="question[150]" value="" rel="150"/>
+                                            </div>
+										<div class="toolbar">
+												<a class="btn btn-default" onclick="javascript:gotoindexquestion(9);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																		<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(11);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+											</div>
+				</div>
+																																								<div class="box itembox questionpanel" id="questype_6">
+					<blockquote class="questype">三、问答题</blockquote>
+				</div>
+				                                                				<div class="box itembox paperexamcontent" id="questions_221" rel="6">
+					<h4 class="title">
+						第1题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('221');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('221',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_221">
+							<input id="time_221" type="hidden" name="time[221]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>四大名楼不包括					</div>
+										<div class="selector">
+												<textarea class="jckeditor" etype="simple" id="editor221" name="question[221]" rel="221"></textarea>
+					</div>
+										<div class="toolbar">
+												<a class="btn btn-default" onclick="javascript:gotoindexquestion(10);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																	</div>
+				</div>
+																								<h3 class="text-center">
+					<input type="hidden" name="insertscore" value="1"/>
+					<a class="btn btn-primary" style="font-size:1em;width:270px;" href="#submodal" role="button" data-toggle="modal">交 卷</a>
+				</h3>
+			</form>
+		</div>
+	</div>
+</div>                              
+<div class="modal fade" id="submodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">交卷</h4>
+			</div>
+			<div class="modal-body">
+				<p>共有试题 <span class="allquestionnumber">50</span> 题，已做 <span class="yesdonumber">0</span> 题。您确认要交卷吗？</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" onclick="javascript:submitPaper();" class="btn btn-primary">确定交卷</button>
+				<button aria-hidden="true" class="btn" type="button" data-dismiss="modal">再检查一下</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+var qindex = 0;
+function gotoquestion(questid)
+{
+	$(".questionpanel").hide();
+	$(".paperexamcontent").hide();
+	$("#questions_"+questid).show();
+	$("#questype_"+$("#questions_"+questid).attr('rel')).show();
+}
+function gotoindexquestion(index)
+{
+	$(".questionpanel").hide();
+	$(".paperexamcontent").hide();
+	$(".paperexamcontent").eq(index).show();
+	$("#questype_"+$(".paperexamcontent").eq(index).attr('rel')).show();
+}
+$(document).ready(function(){
+	$.get('index.php?exam-app-index-ajax-getexamlefttime&rand'+Math.random(),function(data){
+		var setting = {
+									time:60,
+									hbox:$("#timer_h"),
+			mbox:$("#timer_m"),
+			sbox:$("#timer_s"),
+			finish:function(){
+				submitPaper();
+			}
+		}
+		setting.lefttime = parseInt(data);
+{*                setting.lefttime = 60*60;*}
+{*                alert(data);*}
+		countdown(setting);
+	});
+
+	(function(){
+		$(".questionpanel").hide();
+		$(".questionpanel:first").show();
+		$(".paperexamcontent").hide();
+		$(".paperexamcontent:first").show();
+	})();
+
+	setInterval(saveanswer,120000);
+
+	initData = $.parseJSON(storage.getItem('questions'));
+	if(initData){
+		for(var p in initData){
+			if(p!='set')
+			formData[p]=initData[p];
+			$("#time_"+$('[name="'+p+'"]').attr('rel')).val(initData[p].time);
+		}
+
+		var textarea = $('#form1 textarea');
+		$.each(textarea,function(){
+			var _this = $(this);
+			if(initData[_this.attr('name')])
+			{
+				_this.val(initData[_this.attr('name')].value);
+				CKEDITOR.instances[_this.attr('id')].setData(initData[_this.attr('name')].value);
+				if(initData[_this.attr('name')].value && initData[_this.attr('name')].value != '')
+				batmark(_this.attr('rel'),initData[_this.attr('name')].value);
+			}
+		});
+		var texts = $('#form1 :input[type=text]');
+		$.each(texts,function(){
+			var _this = $(this);
+			if(initData[_this.attr('name')])
+			{
+				_this.val(initData[_this.attr('name')]?initData[_this.attr('name')].value:'');
+				if(initData[_this.attr('name')].value && initData[_this.attr('name')].value != '')
+				batmark(_this.attr('rel'),initData[_this.attr('name')].value);
+			}
+		});
+
+		var radios = $('#form1 :input[type=radio]');
+		$.each(radios,function(){
+			var _= this, v = initData[_.name]?initData[_.name].value:null;
+			var _this = $(this);
+			if(v!=''&&v==_.value){
+				_.checked = true;
+				batmark(_this.attr('rel'),initData[_this.attr('name')].value);
+			}else{
+				_.checked=false;
+			}
+		});
+
+		var checkboxs=$('#form1 :input[type=checkbox]');
+		$.each(checkboxs,function(){
+			var _=this,v=initData[_.name]?initData[_.name].value:null;
+			var _this = $(this);
+			if(v!=''&&v==_.value){
+				_.checked=true;
+				batmark(_this.attr('rel'),initData[_this.attr('name')].value);
+			}else{
+				_.checked=false;
+			}
+		});
+	}
+
+	$('#form1 :input[type=text]').change(function(){
+		var _this=$(this);
+		var p=[];
+		p.push(_this.attr('name'));
+		p.push(_this.val());
+		p.push(Date.parse(new Date())/1000);
+		$('#time_'+_this.attr('rel')).val(Date.parse(new Date())/1000);
+		set.apply(formData,p);
+		markQuestion(_this.attr('rel'),true);
+	});
+
+	$('#form1 :input[type=radio]').change(function(){
+		var _=this;
+		var _this=$(this);
+		var p=[];
+		p.push(_.name);
+		if(_.checked){
+			p.push(_.value);
+			p.push(Date.parse(new Date())/1000);
+			$('#time_'+_this.attr('rel')).val(Date.parse(new Date())/1000);
+			set.apply(formData,p);
+		}else{
+			p.push('');
+			p.push(null);
+			set.apply(formData,p);
+		}
+		markQuestion(_this.attr('rel'));
+	});
+
+	$('#form1 textarea').change(function(){
+		var _= this;
+		var _this=$(this);
+		var p=[];
+		p.push(_.name);
+		p.push(_.value);
+		p.push(Date.parse(new Date())/1000);
+		$('#time_'+_this.attr('rel')).val(Date.parse(new Date())/1000);
+		set.apply(formData,p);
+		markQuestion(_this.attr('rel'),true);
+	});
+	$('#form1 :input[type=checkbox]').change(function(){
+		var _= this;
+		var _this = $(this);
+		var p=[];
+		p.push(_.name);
+		if(_.checked){
+			p.push(_.value);
+			p.push(Date.parse(new Date())/1000);
+			$('#time_'+_this.attr('rel')).val(Date.parse(new Date())/1000);
+			set.apply(formData,p);
+		}else{
+			p.push('');
+			p.push(null);
+			set.apply(formData,p);
+		}
+		markQuestion(_this.attr('rel'));
+	});
+	$('.allquestionnumber').html($('.paperexamcontent').length);
+	$('.yesdonumber').html($('#questionindex .btn-primary').length);
+});
+</script>
+</body>
+</html>

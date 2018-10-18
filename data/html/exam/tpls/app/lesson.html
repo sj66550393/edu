@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PHPEMS模拟考试系统</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/datetimepicker.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/jquery-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/peskin.css" />
+	<!--[if lt IE 9]>
+	<script src="app/core/styles/js/html5shiv.min.js"></script>
+	<script src="app/core/styles/js/respond.min.js"></script>
+	<![endif]-->
+	<script src="app/core/styles/js/jquery.min.js"></script>
+	<script src="app/core/styles/js/jquery.json.js"></script>
+	<script src="app/core/styles/js/jquery-ui.min.js"></script>
+	<script src="app/core/styles/js/bootstrap.min.js"></script>
+	<script src="app/core/styles/js/bootstrap-datetimepicker.js"></script>
+	<script src="app/core/styles/js/all.fine-uploader.min.js"></script>
+	<script src="app/core/styles/js/ckeditor/js/MathJax.js?config=TeX-AMS_HTML"></script>
+	<script src="app/core/styles/js/ckeditor/ckeditor.js"></script>
+	<script src="app/core/styles/js/plugin.js"></script>
+	<script src="app/exam/styles/js/plugin.js"></script>
+</head><body>
+<div class="container-fluid box" style="margin:0px auto;padding-top:10px;overflow:visible">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="col-xs-3">
+				<h1 style="font-size:42px;color:#337AB7;"><img src="app/core/styles/img/logo2.png" style="height:60px;margin-top:-10px;"/>&nbsp;<b>PHPEMS</b></h1>
+			</div>
+			<div class="col-xs-1">
+			</div>
+			<div class="col-xs-6" style="padding-top:22px;">
+				<div class="form-inline">
+					<div class="input-group">
+						<div class="input-group-btn">
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								课程 <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="index.php?content-app">新闻</a></li>
+								<li><a href="index.php?course-app">课程</a></li>
+								<li><a href="index.php?docs-app">资料</a></li>
+							</ul>
+						</div>
+						<input type="text" style="width:380px;" class="form-control" id="keyword" placeholder="搜索课程">
+					</div>
+					<button type="button" class="btn btn-primary" onclick="javascript:window.location='index.php?course-app-search&keyword='+$('#keyword').val();"> 搜 索 </button>
+				</div>
+			</div>
+			<div class="col-xs-2" style="padding-top:22px;">
+				<ul class="list-unstyled list-inline">
+										<li>
+						<div class="btn-group">
+							<button type="button" class="btn btn-info"><em class="glyphicon glyphicon-user"></em> student</button>
+							<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="caret"></span>
+								<span class="sr-only">Toggle Dropdown</span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="index.php?user-center"><em class="glyphicon glyphicon-user"></em> 用户中心</a></li>
+																								<li><a class="ajax" href="index.php?user-app-logout"><em class="glyphicon glyphicon-log-out"></em> 退出</a></li>
+							</ul>
+						</div>
+					</li>
+									</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid navbar" style="margin-top:0px;margin-bottom:0px;padding-top:10px;background-color:#337AB7;">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="col-xs-12">
+				<ul class="list-unstyled list-inline">
+					<li class="menu col-xs-1"><a href="index.php" class="icon">首页</a></li>
+					<li class="menu col-xs-1"><a href="index.php?course">课程</a></li>
+					<li class="menu col-xs-1 active"><a href="index.php?exam">考试</a></li>
+					<li class="menu col-xs-1"><a href="index.php?docs">文档</a></li>
+					<li class="menu col-xs-1"><a href="index.php?certificate">证书</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div><div class="container-fluid">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="box itembox" style="margin-bottom:0px;">
+				<div class="col-xs-12">
+					<ol class="breadcrumb">
+					  <li><a href="index.php">首页</a></li>
+					  <li><a href="index.php?exam-app">考试</a></li>
+					  <li><a href="index.php?exam-app-basics">测试</a></li>
+					  <li class="active">课后练习</li>
+					</ol>
+				</div>
+			</div>
+			<div class="box itembox">
+				<h4 class="title">课后练习</h4>
+								<p>系统检测到您上次做到《英语知识点2》的判断题第2题，点此<a class="ajax" href="index.php?exam-app-lesson-ajax-setlesson&questype=8&knowsid=5&number=2">继续练习</a></p>
+												<table class="table table-hover table-bordered">
+					<tr class="info"><td colspan="6">第一章</td></tr>
+					<tr>
+										    	<td><a href="index.php?route=exam-app-lesson-lessonnumber&knowsid=4" target="lessonknows" class="ajax" onclick="javascript:$('#submodal').modal('show');">英语知识点1</a></td>
+				    					    					    	<td><a href="index.php?route=exam-app-lesson-lessonnumber&knowsid=5" target="lessonknows" class="ajax" onclick="javascript:$('#submodal').modal('show');">英语知识点2</a></td>
+				    					    					    	<td><a href="index.php?route=exam-app-lesson-lessonnumber&knowsid=6" target="lessonknows" class="ajax" onclick="javascript:$('#submodal').modal('show');">英语知识点3</a></td>
+				    					    					    	<td><a href="index.php?route=exam-app-lesson-lessonnumber&knowsid=7" target="lessonknows" class="ajax" onclick="javascript:$('#submodal').modal('show');">英语知识点6</a></td>
+				    					    					    	<td><a href="index.php?route=exam-app-lesson-lessonnumber&knowsid=8" target="lessonknows" class="ajax" onclick="javascript:$('#submodal').modal('show');">英语知识点4</a></td>
+				    					    					    	<td><a href="index.php?route=exam-app-lesson-lessonnumber&knowsid=9" target="lessonknows" class="ajax" onclick="javascript:$('#submodal').modal('show');">英语知识点5</a></td>
+				    	</tr><tr>				    					    	<td><a href="index.php?route=exam-app-lesson-lessonnumber&knowsid=10" target="lessonknows" class="ajax" onclick="javascript:$('#submodal').modal('show');">英语知识点7</a></td>
+				    					    					    	<td><a href="index.php?route=exam-app-lesson-lessonnumber&knowsid=12" target="lessonknows" class="ajax" onclick="javascript:$('#submodal').modal('show');">英语知识点8</a></td>
+				    					    					    	<td><a href="index.php?route=exam-app-lesson-lessonnumber&knowsid=14" target="lessonknows" class="ajax" onclick="javascript:$('#submodal').modal('show');">英语知识点9</a></td>
+				    					    					    	<td><a href="index.php?route=exam-app-lesson-lessonnumber&knowsid=15" target="lessonknows" class="ajax" onclick="javascript:$('#submodal').modal('show');">英语知识点10</a></td>
+				    					    					    	<td><a href="index.php?route=exam-app-lesson-lessonnumber&knowsid=16" target="lessonknows" class="ajax" onclick="javascript:$('#submodal').modal('show');">英语知识点11</a></td>
+				    					    					    	<td><a href="index.php?route=exam-app-lesson-lessonnumber&knowsid=17" target="lessonknows" class="ajax" onclick="javascript:$('#submodal').modal('show');">英语知识点12</a></td>
+				    	</tr><tr>				    					    	<td><a href="index.php?route=exam-app-lesson-lessonnumber&knowsid=18" target="lessonknows" class="ajax" onclick="javascript:$('#submodal').modal('show');">英语知识点13</a></td>
+				    					    					    	<td><a href="index.php?route=exam-app-lesson-lessonnumber&knowsid=19" target="lessonknows" class="ajax" onclick="javascript:$('#submodal').modal('show');">英语知识点14</a></td>
+				    					    					    	<td><a href="index.php?route=exam-app-lesson-lessonnumber&knowsid=20" target="lessonknows" class="ajax" onclick="javascript:$('#submodal').modal('show');">英语知识点15</a></td>
+				    					    					    	<td><a href="index.php?route=exam-app-lesson-lessonnumber&knowsid=21" target="lessonknows" class="ajax" onclick="javascript:$('#submodal').modal('show');">英语知识点16</a></td>
+				    					    					    	<td><a href="index.php?route=exam-app-lesson-lessonnumber&knowsid=22" target="lessonknows" class="ajax" onclick="javascript:$('#submodal').modal('show');">英语知识点17</a></td>
+				    					    					    	<td><a href="index.php?route=exam-app-lesson-lessonnumber&knowsid=23" target="lessonknows" class="ajax" onclick="javascript:$('#submodal').modal('show');">英语知识点18</a></td>
+				    	</tr><tr>				    					    	<td><a href="index.php?route=exam-app-lesson-lessonnumber&knowsid=24" target="lessonknows" class="ajax" onclick="javascript:$('#submodal').modal('show');">英语知识点19</a></td>
+				    					    					    	<td><a href="index.php?route=exam-app-lesson-lessonnumber&knowsid=25" target="lessonknows" class="ajax" onclick="javascript:$('#submodal').modal('show');">英语知识点20</a></td>
+				    					    					    	<td><a href="index.php?route=exam-app-lesson-lessonnumber&knowsid=26" target="lessonknows" class="ajax" onclick="javascript:$('#submodal').modal('show');">英语知识点22</a></td>
+				    					    					    	<td><a href="index.php?route=exam-app-lesson-lessonnumber&knowsid=28" target="lessonknows" class="ajax" onclick="javascript:$('#submodal').modal('show');">英语知识点28</a></td>
+				    					    					    					    					    	<td colspan="2"></td>
+				    						</tr>
+				</table>
+							</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="submodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">题型</h4>
+			</div>
+			<div class="modal-body">
+				<div id="lessonknows"></div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">再看看其他的</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid box" style="background-color:#337AB7;margin-bottom:0px;" id="footer">
+	<div class="row-fluid">
+		<div class="main itembox">
+			<div class="col-xs-12">
+				<ul class="list-unstyled">
+					<li class="text-center"><a href="">PHPEMS在线模拟考试系统 著作权登记号：2013 SR 113189</a></li>
+					<li class="text-center"><a href="">Copyright © phpems.net  2015-2017</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div></body>
+</html>

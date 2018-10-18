@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PHPEMS模拟考试系统</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/datetimepicker.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/jquery-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/peskin.css" />
+	<!--[if lt IE 9]>
+	<script src="app/core/styles/js/html5shiv.min.js"></script>
+	<script src="app/core/styles/js/respond.min.js"></script>
+	<![endif]-->
+	<script src="app/core/styles/js/jquery.min.js"></script>
+	<script src="app/core/styles/js/jquery.json.js"></script>
+	<script src="app/core/styles/js/jquery-ui.min.js"></script>
+	<script src="app/core/styles/js/bootstrap.min.js"></script>
+	<script src="app/core/styles/js/bootstrap-datetimepicker.js"></script>
+	<script src="app/core/styles/js/all.fine-uploader.min.js"></script>
+	<script src="app/core/styles/js/ckeditor/js/MathJax.js?config=TeX-AMS_HTML"></script>
+	<script src="app/core/styles/js/ckeditor/ckeditor.js"></script>
+	<script src="app/core/styles/js/plugin.js"></script>
+	<script src="app/exam/styles/js/plugin.js"></script>
+</head><body>
+<div class="container-fluid box" style="margin:0px auto;padding-top:10px;overflow:visible">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="col-xs-3">
+				<h1 style="font-size:42px;color:#337AB7;"><img src="app/core/styles/img/logo2.png" style="height:60px;margin-top:-10px;"/>&nbsp;<b>PHPEMS</b></h1>
+			</div>
+			<div class="col-xs-1">
+			</div>
+			<div class="col-xs-6" style="padding-top:22px;">
+				<div class="form-inline">
+					<div class="input-group">
+						<div class="input-group-btn">
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								课程 <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="index.php?content-app">新闻</a></li>
+								<li><a href="index.php?course-app">课程</a></li>
+								<li><a href="index.php?docs-app">资料</a></li>
+							</ul>
+						</div>
+						<input type="text" style="width:380px;" class="form-control" id="keyword" placeholder="搜索课程">
+					</div>
+					<button type="button" class="btn btn-primary" onclick="javascript:window.location='index.php?course-app-search&keyword='+$('#keyword').val();"> 搜 索 </button>
+				</div>
+			</div>
+			<div class="col-xs-2" style="padding-top:22px;">
+				<ul class="list-unstyled list-inline">
+										<li>
+						<div class="btn-group">
+							<button type="button" class="btn btn-info"><em class="glyphicon glyphicon-user"></em> student</button>
+							<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="caret"></span>
+								<span class="sr-only">Toggle Dropdown</span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="index.php?user-center"><em class="glyphicon glyphicon-user"></em> 用户中心</a></li>
+																								<li><a class="ajax" href="index.php?user-app-logout"><em class="glyphicon glyphicon-log-out"></em> 退出</a></li>
+							</ul>
+						</div>
+					</li>
+									</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid navbar" style="margin-top:0px;margin-bottom:0px;padding-top:10px;background-color:#337AB7;">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="col-xs-12">
+				<ul class="list-unstyled list-inline">
+					<li class="menu col-xs-1"><a href="index.php" class="icon">首页</a></li>
+					<li class="menu col-xs-1"><a href="index.php?course">课程</a></li>
+					<li class="menu col-xs-1 active"><a href="index.php?exam">考试</a></li>
+					<li class="menu col-xs-1"><a href="index.php?docs">文档</a></li>
+					<li class="menu col-xs-1"><a href="index.php?certificate">证书</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div><div class="container-fluid" id="datacontent">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="box itembox" style="margin-bottom:0px;">
+				<div class="col-xs-12">
+					<ol class="breadcrumb">
+					  <li><a href="index.php">首页</a></li>
+					  <li><a href="index.php?exam-app">考试</a></li>
+					  <li><a href="index.php?exam-app-basics">测试</a></li>
+					  <li class="active">主观题评分</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+		<div class="main box">
+			<form id="form1" name="form1" class="col-xs-12" action="index.php?exam-app-exam-makescore">
+				<div class="box itembox">
+					<h4 class="title">主观题评分</h4>
+					<div class="alert alert-info">
+						<ul class="list-unstyled">
+		                	<li><b>阅卷规则</b></li>
+	                    	<li>1、客观题系统将自动核对学员答案。</li>
+	                    	<li>2、主观题请参照系统给出的答案自行核对，并给出分数。</li>
+	                    	<li>3、自行评分完毕后请单击“自行判卷无误，提交”按钮，将即刻为您生成本次测验的成绩单。</li>
+		                </ul>
+		                <p>以下题为主观题请参照正确答案后自行给出分数</p>
+	                </div>
+	            </div>
+																																																<div class="box itembox">
+					<blockquote class="questype">一、问答题</blockquote>
+				</div>
+				                                	            <div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第1题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_220">
+							<input id="time_220" type="hidden" name="time[220]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>文章西汉两司马，经世南北一卧龙是指					</div>
+											                					<div class="selector decidediv" style="border-left:10px solid #CCCCCC;position:relative;">
+	                	<ul class="list-unstyled">
+	                    	<li>正确答案：</li>
+	                        <li>简答题答案</li>
+	                    	<li>您的答案：</li>
+	                        <li></li>
+	                    </ul>
+	                </div>
+	                <div class="choice" style="line-height:2.5em;">
+                  		【请根据参考答案给出分值】
+                  		<input type="text" class="col-xs-1" name="score[220]" value="" maxvalue="3">
+                  		<span class="text-error">提示：本题共3分，可输入0.5的倍数。</span>
+                  	</div>
+				</div>
+				                	            <div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第2题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_222">
+							<input id="time_222" type="hidden" name="time[222]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>四大名楼不包括					</div>
+											                					<div class="selector decidediv" style="border-left:10px solid #CCCCCC;position:relative;">
+	                	<ul class="list-unstyled">
+	                    	<li>正确答案：</li>
+	                        <li>简答题答案</li>
+	                    	<li>您的答案：</li>
+	                        <li></li>
+	                    </ul>
+	                </div>
+	                <div class="choice" style="line-height:2.5em;">
+                  		【请根据参考答案给出分值】
+                  		<input type="text" class="col-xs-1" name="score[222]" value="" maxvalue="3">
+                  		<span class="text-error">提示：本题共3分，可输入0.5的倍数。</span>
+                  	</div>
+				</div>
+				                	            <div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第3题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_226">
+							<input id="time_226" type="hidden" name="time[226]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>1937年1月，红军大学改称抗日军政大学，谁任校长兼政委？					</div>
+											                					<div class="selector decidediv" style="border-left:10px solid #CCCCCC;position:relative;">
+	                	<ul class="list-unstyled">
+	                    	<li>正确答案：</li>
+	                        <li>简答题答案</li>
+	                    	<li>您的答案：</li>
+	                        <li></li>
+	                    </ul>
+	                </div>
+	                <div class="choice" style="line-height:2.5em;">
+                  		【请根据参考答案给出分值】
+                  		<input type="text" class="col-xs-1" name="score[226]" value="" maxvalue="3">
+                  		<span class="text-error">提示：本题共3分，可输入0.5的倍数。</span>
+                  	</div>
+				</div>
+				                	            <div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第4题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_229">
+							<input id="time_229" type="hidden" name="time[229]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>明朝末年，多尔衮趁李自成义军渐渐腐化，利用吴三桂引兵入关，用的是什么计谋？					</div>
+											                					<div class="selector decidediv" style="border-left:10px solid #CCCCCC;position:relative;">
+	                	<ul class="list-unstyled">
+	                    	<li>正确答案：</li>
+	                        <li>简答题答案</li>
+	                    	<li>您的答案：</li>
+	                        <li></li>
+	                    </ul>
+	                </div>
+	                <div class="choice" style="line-height:2.5em;">
+                  		【请根据参考答案给出分值】
+                  		<input type="text" class="col-xs-1" name="score[229]" value="" maxvalue="3">
+                  		<span class="text-error">提示：本题共3分，可输入0.5的倍数。</span>
+                  	</div>
+				</div>
+				                	            <div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第5题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_232">
+							<input id="time_232" type="hidden" name="time[232]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>邹忌是哪国人？					</div>
+											                					<div class="selector decidediv" style="border-left:10px solid #CCCCCC;position:relative;">
+	                	<ul class="list-unstyled">
+	                    	<li>正确答案：</li>
+	                        <li>简答题答案</li>
+	                    	<li>您的答案：</li>
+	                        <li></li>
+	                    </ul>
+	                </div>
+	                <div class="choice" style="line-height:2.5em;">
+                  		【请根据参考答案给出分值】
+                  		<input type="text" class="col-xs-1" name="score[232]" value="" maxvalue="3">
+                  		<span class="text-error">提示：本题共3分，可输入0.5的倍数。</span>
+                  	</div>
+				</div>
+																								<h3 class="text-center">
+					 <button type="submit" class="btn btn-primary">自行判分完毕，提交分数</button>
+					 <input type="hidden" name="makescore" value="1"/>
+				</h3>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="container-fluid box" style="background-color:#337AB7;margin-bottom:0px;" id="footer">
+	<div class="row-fluid">
+		<div class="main itembox">
+			<div class="col-xs-12">
+				<ul class="list-unstyled">
+					<li class="text-center"><a href="">PHPEMS在线模拟考试系统 著作权登记号：2013 SR 113189</a></li>
+					<li class="text-center"><a href="">Copyright © phpems.net  2015-2017</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div></body>
+</html>
