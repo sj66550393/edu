@@ -264,8 +264,15 @@ class exam_exam
 		$this->db->exec($sql);
 		return $r;
 	}
+        
+        public function addQuestLog($args){
+            $args['createTime'] = TIME;
+            $data = array('questlog',$args);
+            $sql = $this->pdosql->makeInsert($data);
+	    return $this->db->exec($sql);
+        }
 
-	public function parseQuestionKnows($knows,$questionid = NULL,$qktype = 0)
+        public function parseQuestionKnows($knows,$questionid = NULL,$qktype = 0)
 	{
 		$ks = explode("\n",$knows);
 		$data = array();

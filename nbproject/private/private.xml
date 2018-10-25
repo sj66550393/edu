@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>app/exam/controller/basic.master.php</url>
+            <bookmark id="1">
+                <name/>
+                <line>995</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/software/wamp/wamp/www/app/exam/tpls/app/history_exercisewrongs.tpl</file>
-            <file>file:/D:/software/wamp/wamp/www/app/exam/cls/answer.cls.php</file>
-            <file>file:/D:/software/wamp/wamp/www/app/exam/controller/history.app.php</file>
-            <file>file:/D:/software/wamp/wamp/www/app/exam/controller/basic.teach.php</file>
-            <file>file:/D:/software/wamp/wamp/www/lib/pdosql.cls.php</file>
-            <file>file:/D:/software/wamp/wamp/www/lib/module.cls.php</file>
-            <file>file:/D:/software/wamp/wamp/www/lib/ev.cls.php</file>
-            <file>file:/D:/software/wamp/wamp/www/app/exam/controller/index.app.php</file>
-            <file>file:/D:/software/wamp/wamp/www/lib/pg.cls.php</file>
-            <file>file:/D:/software/wamp/wamp/www/app/exam/cls/favor.cls.php</file>
-            <file>file:/D:/software/wamp/wamp/www/app/exam/tpls/app/history.tpl</file>
-            <file>file:/D:/software/wamp/wamp/www/app/exam/cls/basic.cls.php</file>
-            <file>file:/D:/software/wamp/wamp/www/app/exam/cls/exam.cls.php</file>
-            <file>file:/D:/software/wamp/wamp/www/app/exam/tpls/app/exampaper_paper.tpl</file>
-            <file>file:/D:/software/wamp/wamp/www/app/exam/controller/exam.app.php</file>
-            <file>file:/D:/software/wamp/wamp/www/app/exam/cls/question.cls.php</file>
+            <file>file:/E:/wamp/wamp/www/edu/app/exam/tpls/app/exampaper_paper.tpl</file>
+            <file>file:/E:/wamp/wamp/www/edu/app/exam/controller/exampaper.app.php</file>
+            <file>file:/E:/wamp/wamp/www/edu/app/exam/cls/exam.cls.php</file>
+            <file>file:/E:/wamp/wamp/www/edu/app/exam/controller/exam.app.php</file>
+            <file>file:/E:/wamp/wamp/www/edu/app/exam/controller/basic.master.php</file>
+            <file>file:/E:/wamp/wamp/www/edu/app/document/controller/files.master.php</file>
+            <file>file:/E:/wamp/wamp/www/edu/app/exam/controller/questions.master.php</file>
         </group>
     </open-files>
 </project-private>
