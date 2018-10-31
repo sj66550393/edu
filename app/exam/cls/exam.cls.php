@@ -881,6 +881,17 @@ class exam_exam
 		$r['number'] = $t['number'];
 		return $r;
 	}
+        
+        public function getLastKnowsLogByUserId($userid){
+                $data = array(false,'knowslog',array(array("AND","userid = :userid",'userid',$userid)));
+	        $sql = $this->pdosql->makeSelect($data);
+		return $this->db->fetch($sql,array('knowsnet','knowsRecent'));
+        }
+        
+        public function insertKnowsLog(){
+            
+        }
+       
 }
 
 ?>
