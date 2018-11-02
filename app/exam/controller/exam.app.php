@@ -81,9 +81,9 @@ class action extends app {
         $knowslog = $this->exam->getKnowsLogByUserId($sessionvars['examsessionuserid']);
         
         if ($this->ev->get('makescore')) {
-            if(is_null($knowslog)){
             $knowslog['userid'] = $sessionvars['examsessionuserid'];
             $knowslog['updateTime'] = TIME;
+            if(is_null($knowslog)){
             $knowslog['knowsnet'] = array();
             $knowslog['knowsRecent'] = array();
         }
