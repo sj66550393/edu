@@ -7,9 +7,11 @@
  * Window - Preferences - PHPeclipse - PHP - Code Templates
  */
 
-class action extends app {
+class action extends app
+{
 
-    public function display() {
+    public function display()
+    {
         $action = $this->ev->url(3);
         if (!method_exists($this, $action))
             $action = "index";
@@ -21,13 +23,15 @@ class action extends app {
         exit;
     }
 
-    private function reload() {
+    private function reload()
+    {
         $args = array('examsessionkey' => 0);
         $this->exam->modifyExamSession($args);
         header("location:index.php?exam-app-exam");
     }
 
-    private function ajax() {
+    private function ajax()
+    {
 
         switch ($this->ev->url(4)) {
 
@@ -61,7 +65,8 @@ class action extends app {
         }
     }
 
-    private function view() {
+    private function view()
+    {
         $sessionvars = $this->exam->getExamSessionBySessionid();
         if ($sessionvars['examsessiontype'] != 2) {
             if ($sessionvars['examsessiontype'])
@@ -75,18 +80,19 @@ class action extends app {
         $this->tpl->display('exam_view');
     }
 
-    private function makescore() {
+    private function makescore()
+    {
         $questype = $this->basic->getQuestypeList();
         $sessionvars = $this->exam->getExamSessionBySessionid();
         $knowslog = $this->exam->getKnowsLogByUserId($sessionvars['examsessionuserid']);
-        
+
         if ($this->ev->get('makescore')) {
             $knowslog['userid'] = $sessionvars['examsessionuserid'];
             $knowslog['updateTime'] = TIME;
-            if(is_null($knowslog)){
-            $knowslog['knowsnet'] = array();
-            $knowslog['knowsRecent'] = array();
-        }
+            if (is_null($knowslog)) {
+                $knowslog['knowsnet'] = array();
+                $knowslog['knowsRecent'] = array();
+            }
             $score = $this->ev->get('score');
             $sumscore = 0;
             if (is_array($score)) {
@@ -99,7 +105,7 @@ class action extends app {
             }
             foreach ($sessionvars['examsessionquestion']['questions'] as $p) {
                 if ($sessionvars['examsessionscorelist'][$p['questionid']] == $sessionvars['examsessionsetting']['examsetting']['questype'][$key]['score']) {
-                     //作对的题目
+                    //作对的题目
                     $knows = $sessionvars['examsessionquestion']['questions'][$key]['questionknowsid'];
                     if (is_array($knows)) {
                         foreach ($knows as $knowid) {
@@ -107,8 +113,8 @@ class action extends app {
                                 $knowslog['knowsnet'][$knowid] = 1;
                                 $knowslog['knowsRecent'][$knowid] = 1;
                             } else {
-                                $knowslog['knowsnet'][$knowid] ++;
-                                $knowslog['knowsRecent'][$knowid] ++;
+                                $knowslog['knowsnet'][$knowid]++;
+                                $knowslog['knowsRecent'][$knowid]++;
                                 if ($knowslog['knowsRecent'][$knowid] == 3) {
                                     $knowslog['knowsRecent'][$knowid] = 0;
                                 }
@@ -119,8 +125,8 @@ class action extends app {
                             $knowslog['knowsnet'][$knows] = 1;
                             $knowslog['knowsRecent'][$knows] = 1;
                         } else {
-                            $knowslog['knowsnet'][$knows] ++;
-                            $knowslog['knowsRecent'][$knows] ++;
+                            $knowslog['knowsnet'][$knows]++;
+                            $knowslog['knowsRecent'][$knows]++;
                             if ($knowslog['knowsRecent'][$knows] == 3) {
                                 $knowslog['knowsRecent'][$knows] = 0;
                             }
@@ -137,6 +143,19 @@ class action extends app {
                                 $knowslog['knowsnet'][$knowid]--;
                                 $knowslog['knowsRecent'][$knowid]--;
                                 if ($knowslog['knowsRecent'][$knowid] == -3) {
+                                    $knowsMaster = $this->exams()->getUserKnowsMaster($sessionvars['examsessionuserid'], $knowid);
+                                    if (is_null($knowsMaster)) {
+                                        $knowsMaster = array();
+                                        $knowsMaster['master'] = 1;
+                                        $knowsMaster['createTime'] = TIME;
+                                        $knowsMaster['userid'] = $sessionvars['examsessionuserid'];
+                                        $knowsMaster['knowsid'] = $knowid;
+                                    } else {
+                                        if ($knowsMaster['master'] == -1) {
+                                            $knowsMaster['master'] = 1;
+                                            $knowsMaster['createTime'] = TIME;
+                                        }
+                                    }
                                     $knowslog['knowsRecent'][$knowid] = 0;
                                 }
                             }
@@ -146,16 +165,31 @@ class action extends app {
                             $knowslog['knowsnet'][$knows] = -1;
                             $knowslog['knowsRecent'][$knows] = -1;
                         } else {
-                            $knowslog['knowsnet'][$knows] --;
-                            $knowslog['knowsRecent'][$knows] --;
+                            $knowslog['knowsnet'][$knows]--;
+                            $knowslog['knowsRecent'][$knows]--;
                             if ($knowslog['knowsRecent'][$knows] == -3) {
+                                $knowsMaster = $this->exams()->getUserKnowsMaster($sessionvars['examsessionuserid'], $knowid);
+                                if (is_null($knowsMaster)) {
+                                    $knowsMaster = array();
+                                    $knowsMaster['master'] = 1;
+                                    $knowsMaster['createTime'] = TIME;
+                                    $knowsMaster['userid'] = $sessionvars['examsessionuserid'];
+                                    $knowsMaster['knowsid'] = $knowid;
+                                } else {
+                                    if ($knowsMaster['master'] == -1) {
+                                        $knowsMaster['master'] = 1;
+                                        $knowsMaster['createTime'] = TIME;
+                                    }
+                                }
+
+
                                 $knowslog['knowsRecent'][$knows] = 0;
                             }
                         }
                     }
                 }
             }
-            
+
             $sessionvars['examsessionscore'] = $sumscore;
             $args['examsessionscorelist'] = $sessionvars['examsessionscorelist'];
             $allnumber = floatval(count($sessionvars['examsessionscorelist']));
@@ -169,8 +203,7 @@ class action extends app {
                 else
                     header("location:index.php?exam-app-exam-paper");
                 exit;
-            }
-            else {
+            } else {
                 if ($id)
                     $message = array(
                         'statusCode' => 200,
@@ -185,8 +218,7 @@ class action extends app {
                     );
                 $this->G->R($message);
             }
-        }
-        else {
+        } else {
             $ehid = $this->ev->get('ehid');
             $eh = $this->favor->getExamHistoryById($ehid);
             $sessionvars = array(
@@ -212,10 +244,10 @@ class action extends app {
                 $score[$key] = 0;
                 if ($sessionvars['examsessionquestion']['questions'][$key]) {
                     foreach ($sessionvars['examsessionquestion']['questions'][$key] as $p) {
-                        $number[$key] ++;
+                        $number[$key]++;
                         $allnumber++;
                         if ($sessionvars['examsessionscorelist'][$p['questionid']] == $sessionvars['examsessionsetting']['examsetting']['questype'][$key]['score']) {
-                            $right[$key] ++;
+                            $right[$key]++;
                             $allright++;
                         }
                         $score[$key] = $score[$key] + $sessionvars['examsessionscorelist'][$p['questionid']];
@@ -224,10 +256,10 @@ class action extends app {
                 if ($sessionvars['examsessionquestion']['questionrows'][$key]) {
                     foreach ($sessionvars['examsessionquestion']['questionrows'][$key] as $v) {
                         foreach ($v['data'] as $p) {
-                            $number[$key] ++;
+                            $number[$key]++;
                             $allnumber++;
                             if ($sessionvars['examsessionscorelist'][$p['questionid']] == $sessionvars['examsessionsetting']['examsetting']['questype'][$key]['score']) {
-                                $right[$key] ++;
+                                $right[$key]++;
                                 $allright++;
                             }
                             $score[$key] = $score[$key] + $sessionvars['examsessionscorelist'][$p['questionid']];
@@ -247,7 +279,8 @@ class action extends app {
         }
     }
 
-    private function score() {
+    private function score()
+    {
         $questype = $this->basic->getQuestypeList();
         $sessionvars = $this->exam->getExamSessionBySessionid();
         $needhand = 0;
@@ -306,15 +339,14 @@ class action extends app {
                                             $rlen = 0;
                                             break;
                                         } else {
-                                            $rlen ++;
+                                            $rlen++;
                                         }
                                     }
                                     $score = floatval($sessionvars['examsessionsetting']['examsetting']['questype'][$key]['score'] * $rlen / $alen);
                                 } else
                                     $score = 0;
                             }
-                        }
-                        else {
+                        } else {
                             $answer = $sessionvars['examsessionuseranswer'][$p['questionid']];
                             if ($answer == $p['questionanswer'])
                                 $score = $sessionvars['examsessionsetting']['examsetting']['questype'][$key]['score'];
@@ -323,8 +355,7 @@ class action extends app {
                         }
                         $scorelist[$p['questionid']] = $score;
                     }
-                }
-                else {
+                } else {
                     if (is_array($tmp) && count($tmp))
                         $needhand = 1;
                 }
@@ -348,15 +379,14 @@ class action extends app {
                                                 $rlen = 0;
                                                 break;
                                             } else {
-                                                $rlen ++;
+                                                $rlen++;
                                             }
                                         }
                                         $score = $sessionvars['examsessionsetting']['examsetting']['questype'][$key]['score'] * $rlen / $alen;
                                     } else
                                         $score = 0;
                                 }
-                            }
-                            else {
+                            } else {
                                 $answer = $sessionvars['examsessionuseranswer'][$p['questionid']];
                                 if ($answer == $p['questionanswer'])
                                     $score = $sessionvars['examsessionsetting']['examsetting']['questype'][$key]['score'];
@@ -366,8 +396,7 @@ class action extends app {
                             $scorelist[$p['questionid']] = $score;
                         }
                     }
-                }
-                else {
+                } else {
                     if (!$needhand) {
                         if (is_array($tmp) && count($tmp))
                             $needhand = 1;
@@ -404,8 +433,7 @@ class action extends app {
                             'statusCode' => 300,
                             "message" => "操作失败，请重新提交"
                         );
-                }
-                else {
+                } else {
                     $args['examsessionstatus'] = 1;
                     $this->exam->modifyExamSession($args);
                     //$this->favor->addExamHistory(1);
@@ -430,7 +458,8 @@ class action extends app {
         }
     }
 
-    private function paper() {
+    private function paper()
+    {
         $sessionvars = $this->exam->getExamSessionBySessionid();
         $lefttime = 0;
         $questype = $this->basic->getQuestypeList();
@@ -453,7 +482,8 @@ class action extends app {
         }
     }
 
-    private function selectquestions() {
+    private function selectquestions()
+    {
         $sessionvars = $this->exam->getExamSessionBySessionid();
         if ($this->data['currentbasic']['basicexam']['examnumber']) {
             $overflow = false;
@@ -552,8 +582,7 @@ class action extends app {
                     "forwardUrl" => "index.php?exam-app-exam-paper"
                 );
                 $this->G->R($message);
-            }
-            elseif ($r['examtype'] == 2) {
+            } elseif ($r['examtype'] == 2) {
                 $sessionvars = $this->exam->getExamSessionBySessionid();
                 $questions = array();
                 $questionrows = array();
@@ -601,8 +630,7 @@ class action extends app {
                     "forwardUrl" => "index.php?exam-app-exam-paper"
                 );
                 $this->G->R($message);
-            }
-            else {
+            } else {
                 $sessionvars = $this->exam->getExamSessionBySessionid();
                 $args['examsessionquestion'] = $r['examquestions'];
                 $args['examsessionsetting'] = $r;
@@ -634,7 +662,8 @@ class action extends app {
         }
     }
 
-    private function index() {
+    private function index()
+    {
         $page = $this->ev->get('page');
         $ids = trim($this->data['currentbasic']['basicexam']['self'], ', ');
         if (!$ids)

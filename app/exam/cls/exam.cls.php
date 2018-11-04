@@ -815,14 +815,14 @@ class exam_exam {
     }
 
     //添加一个知识点log
-    public function insertKnowsLog($arg) {
+    public function insertKnowsLog($args) {
         $data = array('knowsnet', $args);
         $sql = $this->pdosql->makeInsert($data);
         return $this->db->exec($sql);
     }
     
     //添加一个用户已掌握/未掌握的知识点
-    public function insertKnowsMaster($arg){
+    public function insertKnowsMaster($args){
          $data = array('knowsmaster', $args);
         $sql = $this->pdosql->makeInsert($data);
         return $this->db->exec($sql);
@@ -830,7 +830,16 @@ class exam_exam {
     
     //删除一个用户已掌握/未掌握的知识点
     public function deleteKnowsMaster($userid , $knowsid){
-        
+        $data = array(false , "knowsmaster" , array(array("AND" , "userid = :userid" , 'userid' , $userid) , array("AND" , "knowsid" , 'knowsid' , $knowsid)));
+        $sql = $this->pdosql->makeDelete($data);
+        return $this->db->exec($sql);
+    }
+
+    //获取用户是否掌握知识点情况
+    public function getUserKnowsMaster($userid , $knowsid){
+        $data = array(false , "knowsmaster" , array(array("AND" , "userid = :userid" , 'userid' , $userid) , array("AND" , "knowsid" , 'knowsid' , $knowsid)));
+        $sql = $this->pdosql->makeSelect($data);
+        return $this->db->fetch($sql);
     }
 
 }
