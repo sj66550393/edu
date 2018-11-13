@@ -279,6 +279,8 @@ $(document).ready(function(){
 			}
 		}
 		setting.lefttime = parseInt(data);
+{*                setting.lefttime = 60*60;*}
+                alert(data);
 		countdown(setting);
 	});
 

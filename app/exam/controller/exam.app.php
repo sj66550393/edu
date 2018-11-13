@@ -84,9 +84,11 @@ class action extends app
     {
         $questype = $this->basic->getQuestypeList();
         $sessionvars = $this->exam->getExamSessionBySessionid();
-        $knowslog = $this->exam->getKnowsLogByUserId($sessionvars['examsessionuserid']);
+        echo "userid = ".$sessionvars['examsessionuserid'];
+        $knowslog = $this->exam->getLastKnowsLogByUserId($sessionvars['examsessionuserid']);
 
         if ($this->ev->get('makescore')) {
+
             $knowslog['userid'] = $sessionvars['examsessionuserid'];
             $knowslog['updateTime'] = TIME;
             if (is_null($knowslog)) {
@@ -107,23 +109,29 @@ class action extends app
                 if ($sessionvars['examsessionscorelist'][$p['questionid']] == $sessionvars['examsessionsetting']['examsetting']['questype'][$key]['score']) {
                     //作对的题目
                     $knows = $sessionvars['examsessionquestion']['questions'][$key]['questionknowsid'];
+                    echo "key = ".$key;
+                    print_r($sessionvars['examsessionquestion']['questions']["42"]);
                     if (is_array($knows)) {
                         foreach ($knows as $knowid) {
                             if (is_null($knowslog['knowsnet'][$knowid])) {
+                                echo "作对";
                                 $knowslog['knowsnet'][$knowid] = 1;
                                 $knowslog['knowsRecent'][$knowid] = 1;
+                                $this->exam->insertKnowsLog($knowslog);
                             } else {
                                 $knowslog['knowsnet'][$knowid]++;
                                 $knowslog['knowsRecent'][$knowid]++;
                                 if ($knowslog['knowsRecent'][$knowid] == 3) {
                                     $knowslog['knowsRecent'][$knowid] = 0;
                                 }
+                               
                             }
                         }
                     } else {
                         if (is_null($knowslog['knowsnet'][$knows])) {
-                            $knowslog['knowsnet'][$knows] = 1;
-                            $knowslog['knowsRecent'][$knows] = 1;
+                            $knowslog['knowsnet'][$knows] = -1;
+                            $knowslog['knowsRecent'][$knows] = -1;
+                            $this->exam->insertKnowsLog($knowslog);
                         } else {
                             $knowslog['knowsnet'][$knows]++;
                             $knowslog['knowsRecent'][$knows]++;

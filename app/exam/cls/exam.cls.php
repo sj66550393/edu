@@ -816,12 +816,17 @@ class exam_exam {
 
     //添加一个知识点log
     public function insertKnowsLog($args) {
+        print_r($args);
         $data = array('knowsnet', $args);
         $sql = $this->pdosql->makeInsert($data);
         return $this->db->exec($sql);
     }
     
-    //添加一个用户已掌握/未掌握的知识点
+    public function updateKnowsLog(){
+        
+    }
+
+        //添加一个用户已掌握/未掌握的知识点
     public function insertKnowsMaster($args){
          $data = array('knowsmaster', $args);
         $sql = $this->pdosql->makeInsert($data);
