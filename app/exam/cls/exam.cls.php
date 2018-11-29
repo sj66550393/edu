@@ -816,8 +816,6 @@ class exam_exam {
 
     //添加一个知识点log
     public function insertKnowsLog($args) {
-        echo "insertKnowsLog";
-//         print_r($args);
         $data = array('knowslog', $args);
         $sql = $this->pdosql->makeInsert($data);
         return $this->db->exec($sql);

@@ -85,10 +85,6 @@ class action extends app {
 
             $knowslog['userid'] = $sessionvars['examsessionuserid'];
             $knowslog['updateTime'] = TIME;
-//            if (is_null($knowslog)) {
-//                $knowslog['knowsNet'] = array();
-//                $knowslog['knowsRecent'] = array();
-//            }
             $score = $this->ev->get('score');
             $sumscore = 0;
             if (is_array($score)) {
@@ -99,22 +95,21 @@ class action extends app {
             foreach ($sessionvars['examsessionscorelist'] as $p) {
                 $sumscore = $sumscore + floatval($p);
             }
-
+            if(is_null($knowslog['knowsNet'])){
+                $knowslog['knowsNet'] = array();
+            }
+            if(is_null($knowslog['knowsRecent'])){
+                $knowslog['knowsRecent'] = array();
+            }
             foreach ($questype as $key => $q) {
-                $number[$key] = 0;
-                $right[$key] = 0;
-                $score[$key] = 0;
                 if ($sessionvars['examsessionquestion']['questions'][$key]) {
                     foreach ($sessionvars['examsessionquestion']['questions'][$key] as $p) {
-                        $number[$key] ++;
-                        $allnumber++;
                         if ($sessionvars['examsessionscorelist'][$p['questionid']] == $sessionvars['examsessionsetting']['examsetting']['questype'][$key]['score']) {
-                            if (is_array($p['questionknowsid'])) {
-                                foreach ($p['questionknowsid'] as $knowid) {
+                            if (is_array($p['questionknowsid']['knowsid'])) {
+                                foreach ($p['questionknowsid']['knowsid'] as $knowid) {
                                     if (is_null($knowslog['knowsNet'][$knowid])) {
                                         $knowslog['knowsNet'][$knowid] = 1;
                                         $knowslog['knowsRecent'][$knowid] = 1;
-                                        $this->exam->insertKnowsLog($knowslog);
                                     } else {
                                         $knowslog['knowsNet'][$knowid] ++;
                                         $knowslog['knowsRecent'][$knowid] ++;
@@ -124,11 +119,9 @@ class action extends app {
                                     }
                                 }
                             } else {
-                                if (is_null($knowslog['knowsNet'][$p['questionknowsid']])) {
-                                    $knowslog['knowsNet'][$p['questionknowsid']] = -1;
-                                    $knowslog['knowsRecent'][$p['questionknowsid']] = -1;
-                                  
-                                    $this->exam->insertKnowsLog($knowslog);
+                                if (is_null($knowslog['knowsNet'][$p['questionknowsid']['knowsid']])) {
+                                    $knowslog['knowsNet'][$p['questionknowsid']['knowsid']] = -1;
+                                    $knowslog['knowsRecent'][$p['questionknowsid']['knowsid']] = -1;
                                 } else {
                                     $knowslog['knowsNet'][$knows] ++;
                                     $knowslog['knowsRecent'][$knows] ++;
@@ -138,18 +131,13 @@ class action extends app {
                                 }
                             }
                         } else {
-                             echo "questionId = " . $p['questionid']."\n";
-                             if (is_array($p['questionknowsid'])) {
+                             if (is_array($p['questionknowsid']['knowsid'])) {
                                  echo "array knowsid\n";
-                                foreach ($p['questionknowsid'] as $knowid) {
+                                foreach ($p['questionknowsid']['knowsid'] as $knowid) {
                                     if (is_null($knowslog['knowsNet'][$knowid])) {
+
                                         $knowslog['knowsNet'][$knowid] = -1;
-                                        $knowslog['knowsRecent'][$knowid] = -1;
-//                                        $knowslog['']
-                                        echo "\n";
-                                        print_r($knowslog);
-                                        echo "\n";
-                                        $this->exam->insertKnowsLog($knowslog);
+                                        $knowslog['knowsRecent'][$knowid] = -1;    
                                     } else {
                                         $knowslog['knowsNet'][$knowid] --;
                                         $knowslog['knowsRecent'][$knowid] --;
@@ -159,22 +147,23 @@ class action extends app {
                                     }
                                 }
                             } else {
-                                echo "not array knowsid\n";
-                                if (is_null($knowslog['knowsNet'][$p['questionknowsid']])) {
-                                    $knowslog['knowsNet'][$p['questionknowsid']] = -1;
-                                    $knowslog['knowsRecent'][$p['questionknowsid']] = -1;
-                                    $this->exam->insertKnowsLog($knowslog);
+                                echo "knowsid = ".$p['questionknowsid']['knowsid'];
+//                                print_r($p['questionknowsid']);
+                                if (is_null($knowslog['knowsNet'][$p['questionknowsid']['knowsid']])) {
+                                    echo "knowsid null";
+                                    $knowslog['knowsNet'][$p['questionknowsid']['knowsid']] = -1;
+                                    $knowslog['knowsRecent'][$p['questionknowsid']['knowsid']] = -1;                                 
                                 } else {
-                                    $knowslog['knowsNet'][$knows] --;
-                                    $knowslog['knowsRecent'][$knows] --;
-                                    if ($knowslog['knowsRecent'][$knows] == -3) {
-                                        $knowslog['knowsRecent'][$knows] = 0;
-                                    }
+                                    echo "jianjian = ".$knowslog['knowsNet'][$p['questionknowsid']['knowsid']];
+                                    $knowslog['knowsNet'][$p['questionknowsid']['knowsid']] --;
+                                    $knowslog['knowsRecent'][$p['questionknowsid']['knowsid']] --;
+//                                    if ($knowslog['knowsRecent'][$p['questionknowsid']['knowsid']] == -3) {
+//                                        $knowslog['knowsRecent'][$p['questionknowsid']['knowsid']] = 0;
+//                                    }
                                 }
+                                print_r($knowslog);
                             }
-//                            print_r($p['questionknowsid']);
-                        }
-                        $score[$key] = $score[$key] + $sessionvars['examsessionscorelist'][$p['questionid']];
+                        }         
                     }
                 }
                 if ($sessionvars['examsessionquestion']['questionrows'][$key]) {
@@ -191,102 +180,8 @@ class action extends app {
                     }
                 }
             }
-
-
-
-
-
-//            foreach ($sessionvars['examsessionquestion']['questions'] as $p) {
-//                if ($sessionvars['examsessionscorelist'][$p['questionid']] == $sessionvars['examsessionsetting']['examsetting']['questype'][$key]['score']) {
-//                    //作对的题目
-//                    $knows = $sessionvars['examsessionquestion']['questions'][$key]['questionknowsid'];
-//                    print_r($sessionvars['examsessionquestion']['questions'][42]);
-//                    if (is_array($knows)) {
-//                        foreach ($knows as $knowid) {
-//                            if (is_null($knowslog['knowsnet'][$knowid])) {  
-//                                $knowslog['knowsnet'][$knowid] = 1;
-//                                $knowslog['knowsRecent'][$knowid] = 1;
-//                                $this->exam->insertKnowsLog($knowslog);
-//                            } else {
-//                                $knowslog['knowsnet'][$knowid]++;
-//                                $knowslog['knowsRecent'][$knowid]++;
-//                                if ($knowslog['knowsRecent'][$knowid] == 3) {
-//                                    $knowslog['knowsRecent'][$knowid] = 0;
-//                                }
-//                               
-//                            }
-//                        }
-//                    } else {
-//                        if (is_null($knowslog['knowsnet'][$knows])) {
-//                            $knowslog['knowsnet'][$knows] = -1;
-//                            $knowslog['knowsRecent'][$knows] = -1;
-//                            $this->exam->insertKnowsLog($knowslog);
-//                        } else {
-//                            $knowslog['knowsnet'][$knows]++;
-//                            $knowslog['knowsRecent'][$knows]++;
-//                            if ($knowslog['knowsRecent'][$knows] == 3) {
-//                                $knowslog['knowsRecent'][$knows] = 0;
-//                            }
-//                        }
-//                    }
-//                } else {
-//                    //做错的题目
-//                    if (is_array($knows)) {
-//                        foreach ($knows as $knowid) {
-//                            if (is_null($knowslog['knowsnet'][$knowid])) {
-//                                $knowslog['knowsnet'][$knowid] = -1;
-//                                $knowslog['knowsRecent'][$knowid] = -1;
-//                            } else {
-//                                $knowslog['knowsnet'][$knowid]--;
-//                                $knowslog['knowsRecent'][$knowid]--;
-//                                if ($knowslog['knowsRecent'][$knowid] == -3) {
-//                                    $knowsMaster = $this->exams()->getUserKnowsMaster($sessionvars['examsessionuserid'], $knowid);
-//                                    if (is_null($knowsMaster)) {
-//                                        $knowsMaster = array();
-//                                        $knowsMaster['master'] = 1;
-//                                        $knowsMaster['createTime'] = TIME;
-//                                        $knowsMaster['userid'] = $sessionvars['examsessionuserid'];
-//                                        $knowsMaster['knowsid'] = $knowid;
-//                                    } else {
-//                                        if ($knowsMaster['master'] == -1) {
-//                                            $knowsMaster['master'] = 1;
-//                                            $knowsMaster['createTime'] = TIME;
-//                                        }
-//                                    }
-//                                    $knowslog['knowsRecent'][$knowid] = 0;
-//                                }
-//                            }
-//                        }
-//                    } else {
-//                        if (is_null($knowslog['knowsnet'][$knows])) {
-//                            $knowslog['knowsnet'][$knows] = -1;
-//                            $knowslog['knowsRecent'][$knows] = -1;
-//                        } else {
-//                            $knowslog['knowsnet'][$knows]--;
-//                            $knowslog['knowsRecent'][$knows]--;
-//                            if ($knowslog['knowsRecent'][$knows] == -3) {
-//                                $knowsMaster = $this->exams()->getUserKnowsMaster($sessionvars['examsessionuserid'], $knowid);
-//                                if (is_null($knowsMaster)) {
-//                                    $knowsMaster = array();
-//                                    $knowsMaster['master'] = 1;
-//                                    $knowsMaster['createTime'] = TIME;
-//                                    $knowsMaster['userid'] = $sessionvars['examsessionuserid'];
-//                                    $knowsMaster['knowsid'] = $knowid;
-//                                } else {
-//                                    if ($knowsMaster['master'] == -1) {
-//                                        $knowsMaster['master'] = 1;
-//                                        $knowsMaster['createTime'] = TIME;
-//                                    }
-//                                }
-//
-//
-//                                $knowslog['knowsRecent'][$knows] = 0;
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-
+//            print_r($knowslog);
+            $this->exam->insertKnowsLog($knowslog);
             $sessionvars['examsessionscore'] = $sumscore;
             $args['examsessionscorelist'] = $sessionvars['examsessionscorelist'];
             $allnumber = floatval(count($sessionvars['examsessionscorelist']));
