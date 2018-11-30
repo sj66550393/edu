@@ -111,15 +111,25 @@
 	                </ul>
                 </div>
                 <div class="col-xs-12" style="padding-left:0px;">
-                                	                	            									<div class="col-xs-3" style="width:20%">
-															<a action-before="clearStorage" href="index.php?exam-app-exam-selectquestions&examid=1" class="thumbnail ajax" style="position:relative;">
-															<img src="app/core/styles/img/item.jpg" alt="" width="100%">
+                                	                	<div class="box itembox" style="padding-top:20px;">
+						<div class="col-xs-3">
+							<a href="index.php?exam-app-recover" class="thumbnail pull-left ajax">
+								<img src="app/core/styles/img/item.jpg" alt="" width="100%">
 							</a>
-							<h5 class="text-center">
-								随机组卷							</h5>
 						</div>
-																		<ul class="pagination pull-right"></ul>
-            		            		                                </div>
+						<div class="col-xs-9">
+							<a href="index.php?exam-app-recover" class="ajax"><h4 class="title">意外续考</h4></a>
+							<p>系统检测到您曾经在2018-11-30 09:15:57开启了一场未完成的考试，试卷名称为《随机组卷》，点击继续考试可以进行续考。</p>
+							<hr/>
+							<p>
+								<span class="pull-right">
+									<a href="index.php?exam-app-recover" class="btn btn-primary ajax">继续考试</a>&nbsp;&nbsp;
+									<a href="index.php?exam-app-recover-clearexamsession" class="btn btn-danger confirm" msg="放弃考试会删除此次考试会话并不能恢复，确认要放弃吗？">放弃考试</a>
+								</span>
+							</p>
+						</div>
+					</div>
+                	                                </div>
 			</div>
 		</div>
 	</div>

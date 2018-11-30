@@ -104,66 +104,43 @@ class action extends app {
             foreach ($questype as $key => $q) {
                 if ($sessionvars['examsessionquestion']['questions'][$key]) {
                     foreach ($sessionvars['examsessionquestion']['questions'][$key] as $p) {
-                        if ($sessionvars['examsessionscorelist'][$p['questionid']] == $sessionvars['examsessionsetting']['examsetting']['questype'][$key]['score']) {
-                            if (is_array($p['questionknowsid']['knowsid'])) {
-                                foreach ($p['questionknowsid']['knowsid'] as $knowid) {
-                                    if (is_null($knowslog['knowsNet'][$knowid])) {
-                                        $knowslog['knowsNet'][$knowid] = 1;
-                                        $knowslog['knowsRecent'][$knowid] = 1;
+                        if ($sessionvars['examsessionscorelist'][$p['questionid']] == $sessionvars['examsessionsetting']['examsetting']['questype'][$key]['score']) { 
+                                foreach ($p['questionknowsid']as $knows) {
+                                    if (is_null($knowslog['knowsNet'][$knows['knowsid']])) {
+                                        $knowslog['knowsNet'][$knows['knowsid']] = 1;
+                                        $knowslog['knowsRecent'][$knows['knowsid']] = 1;
                                     } else {
-                                        $knowslog['knowsNet'][$knowid] ++;
-                                        $knowslog['knowsRecent'][$knowid] ++;
-                                        if ($knowslog['knowsRecent'][$knowid] == 3) {
-                                            $knowslog['knowsRecent'][$knowid] = 0;
+                                        $knowslog['knowsNet'][$knows['knowsid']] ++;
+                                        $knowslog['knowsRecent'][$knows['knowsid']] ++;
+                                        if ($knowslog['knowsRecent'][$knows['knowsid']] == 3) {
+                                            $knowslog['knowsRecent'][$knows['knowsid']] = 0;
                                         }
                                     }
                                 }
-                            } else {
-                                if (is_null($knowslog['knowsNet'][$p['questionknowsid']['knowsid']])) {
-                                    $knowslog['knowsNet'][$p['questionknowsid']['knowsid']] = -1;
-                                    $knowslog['knowsRecent'][$p['questionknowsid']['knowsid']] = -1;
-                                } else {
-                                    $knowslog['knowsNet'][$knows] ++;
-                                    $knowslog['knowsRecent'][$knows] ++;
-                                    if ($knowslog['knowsRecent'][$knows] == 3) {
-                                        $knowslog['knowsRecent'][$knows] = 0;
-                                    }
-                                }
-                            }
                         } else {
-                             if (is_array($p['questionknowsid']['knowsid'])) {
-                                 echo "array knowsid\n";
-                                foreach ($p['questionknowsid']['knowsid'] as $knowid) {
-                                    if (is_null($knowslog['knowsNet'][$knowid])) {
-
-                                        $knowslog['knowsNet'][$knowid] = -1;
-                                        $knowslog['knowsRecent'][$knowid] = -1;    
+                            if(!is_array($p['questionknowsid'])){
+                                echo "not array";
+                            }
+                            print_r($p['questionknowsid']);
+                            $p['questionknowsid'];
+                                foreach ($p['questionknowsid'] as $know) {
+                                
+                                    print_r($know);
+                                    echo "knowsid = ".$know['knowsid'];
+                                    if (is_null($knowslog['knowsNet'][$know['knowsid']])) {
+                                        $knowslog['knowsNet'][$knows['knowsid']] = -1;
+                                        $knowslog['knowsRecent'][$knows['knowsid']] = -1;    
                                     } else {
-                                        $knowslog['knowsNet'][$knowid] --;
-                                        $knowslog['knowsRecent'][$knowid] --;
-                                        if ($knowslog['knowsRecent'][$knowid] == -3) {
-                                            $knowslog['knowsRecent'][$knowid] = 0;
+                                        echo "exist knowsid";
+                                        $knowslog['knowsNet'][$know['knowsid']] --;
+                                        $knowslog['knowsRecent'][$know['knowsid']] --;
+                                        if ($knowslog['knowsRecent'][$know['knowsid']] == -3) {
+                                            $knowslog['knowsRecent'][$know['knowsid']] = 0;
                                         }
                                     }
                                 }
-                            } else {
-                                echo "knowsid = ".$p['questionknowsid']['knowsid'];
-//                                print_r($p['questionknowsid']);
-                                if (is_null($knowslog['knowsNet'][$p['questionknowsid']['knowsid']])) {
-                                    echo "knowsid null";
-                                    $knowslog['knowsNet'][$p['questionknowsid']['knowsid']] = -1;
-                                    $knowslog['knowsRecent'][$p['questionknowsid']['knowsid']] = -1;                                 
-                                } else {
-                                    echo "jianjian = ".$knowslog['knowsNet'][$p['questionknowsid']['knowsid']];
-                                    $knowslog['knowsNet'][$p['questionknowsid']['knowsid']] --;
-                                    $knowslog['knowsRecent'][$p['questionknowsid']['knowsid']] --;
-//                                    if ($knowslog['knowsRecent'][$p['questionknowsid']['knowsid']] == -3) {
-//                                        $knowslog['knowsRecent'][$p['questionknowsid']['knowsid']] = 0;
-//                                    }
-                                }
-                                print_r($knowslog);
                             }
-                        }         
+                         print_r($knowslog);
                     }
                 }
                 if ($sessionvars['examsessionquestion']['questionrows'][$key]) {
