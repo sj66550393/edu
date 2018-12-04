@@ -811,7 +811,7 @@ class exam_exam {
     public function getLastKnowsLogByUserId($userid) {
         $data = array(false, 'knowslog', array(array("AND", "userid = :userid", 'userid', $userid)), false, "updateTime DESC", 1);
         $sql = $this->pdosql->makeSelect($data);
-        return $this->db->fetch($sql, array('knowsnet', 'knowsRecent'));
+        return $this->db->fetch($sql, array('knowsNet', 'knowsRecent'));
     }
 
     //添加一个知识点log
