@@ -94,42 +94,72 @@ class action extends app {
             foreach ($sessionvars['examsessionscorelist'] as $p) {
                 $sumscore = $sumscore + floatval($p);
             }
-            if(is_null($knowslog['knowsNet'])){
+            if (is_null($knowslog['knowsNet'])) {
                 $knowslog['knowsNet'] = array();
             }
-            if(is_null($knowslog['knowsRecent'])){
+            if (is_null($knowslog['knowsRecent'])) {
                 $knowslog['knowsRecent'] = array();
             }
             foreach ($questype as $key => $q) {
                 if ($sessionvars['examsessionquestion']['questions'][$key]) {
                     foreach ($sessionvars['examsessionquestion']['questions'][$key] as $p) {
-                        if ($sessionvars['examsessionscorelist'][$p['questionid']] == $sessionvars['examsessionsetting']['examsetting']['questype'][$key]['score']) { 
-                                foreach ($p['questionknowsid']as $know) {
-                                    if (is_null($knowslog['knowsNet'][$know['knowsid']])) {
-                                        $knowslog['knowsNet'][$know['knowsid']] = 1;
-                                        $knowslog['knowsRecent'][$know['knowsid']] = 1;
-                                    } else {
-                                        $knowslog['knowsNet'][$know['knowsid']] = $knowslog['knowsNet'][$know['knowsid']] + 1;
-                                        $knowslog['knowsRecent'][$know['knowsid']] = $knowslog['knowsRecent'][$know['knowsid']] + 1;
-                                        if ($knowslog['knowsRecent'][$know['knowsid']] == 3) {
-                                            $knowslog['knowsRecent'][$know['knowsid']] = 0;
+                        if ($sessionvars['examsessionscorelist'][$p['questionid']] == $sessionvars['examsessionsetting']['examsetting']['questype'][$key]['score']) {
+                            foreach ($p['questionknowsid']as $know) {
+                                if (is_null($knowslog['knowsNet'][$know['knowsid']])) {
+                                    $knowslog['knowsNet'][$know['knowsid']] = 1;
+                                    $knowslog['knowsRecent'][$know['knowsid']] = 1;
+                                } else {
+                                    $knowslog['knowsNet'][$know['knowsid']] = $knowslog['knowsNet'][$know['knowsid']] + 1;
+                                    $knowslog['knowsRecent'][$know['knowsid']] = $knowslog['knowsRecent'][$know['knowsid']] + 1;
+                                    if ($knowslog['knowsRecent'][$know['knowsid']] >= 3) {
+                                        $knowsmaster = $this->exam->getUserKnowsMaster($sessionvars['examsessionuserid'], $know['knowsid']);
+                                        
+                                        if (is_null($knowsmaster)) {
+                                            $knowsmaster['createTime'] = TIME;
+                                            $knowsmaster['userid'] = $sessionvars['examsessionuserid'];
+                                            $knowsmaster['knowsid'] = $know['knowsid'];
+                                            $knowsmaster['master'] = 1;
+                                            $this->exam->insertKnowsMaster($knowsmaster);
+                                        } else {
+                                            $knowsmaster['createTime'] = TIME;
+                                            $knowsmaster['master'] = 1;
+                                            $this->exam->updateUserKnowsMaster($knowsmaster);
                                         }
-                                    }
-                                }
-                        } else {
-                                foreach ($p['questionknowsid'] as $know) {
-                                    if (is_null($knowslog['knowsNet'][$know['knowsid']])) {
-                                        $knowslog['knowsNet'][$know['knowsid']] =  - 1;
-                                        $knowslog['knowsRecent'][$know['knowsid']] = - 1;
-                                    } else {
-                                        $knowslog['knowsNet'][$know['knowsid']] = $knowslog['knowsNet'][$know['knowsid']] - 1;
-                                        $knowslog['knowsRecent'][$know['knowsid']] = $knowslog['knowsRecent'][$know['knowsid']] - 1;
-                                        if ($knowslog['knowsRecent'][$know['knowsid']] == -3) {
-                                            $knowslog['knowsRecent'][$know['knowsid']] = 0;
-                                        }
+                                        $knowslog['knowsRecent'][$know['knowsid']] = 0;
                                     }
                                 }
                             }
+                        } else {
+                            foreach ($p['questionknowsid'] as $know) {
+                                if (is_null($knowslog['knowsNet'][$know['knowsid']])) {
+                                    $knowslog['knowsNet'][$know['knowsid']] = - 1;
+                                    $knowslog['knowsRecent'][$know['knowsid']] = - 1;
+                                } else {
+                                    $knowslog['knowsNet'][$know['knowsid']] = $knowslog['knowsNet'][$know['knowsid']] - 1;
+                                    $knowslog['knowsRecent'][$know['knowsid']] = $knowslog['knowsRecent'][$know['knowsid']] - 1;
+                                    if ($knowslog['knowsRecent'][$know['knowsid']] <= -3) {
+                                        $knowsmaster = $this->exam->getUserKnowsMaster($sessionvars['examsessionuserid'], $know['knowsid']);
+                                        print_r($knowsmaster);
+                                        if (is_null($knowsmaster)) {
+                                            echo "is null";
+                                            $knowsmaster['createTime'] = TIME;
+                                            $knowsmaster['userid'] = $sessionvars['examsessionuserid'];
+                                            $knowsmaster['knowsid'] = $know['knowsid'];
+                                            $knowsmaster['master'] = -1;
+//                                            print_r($knowsmaster);
+                                            $this->exam->insertKnowsMaster($knowsmaster);
+                                        } else {
+                                            echo "not null";
+                                            $knowsmaster['createtime'] = TIME;
+                                            $knowsmaster['master'] = -1;
+//                                            print_r($knowsmaster);
+                                            $this->exam->updateUserKnowsMaster($knowsmaster);
+                                        }
+                                        $knowslog['knowsRecent'][$know['knowsid']] = 0;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
                 if ($sessionvars['examsessionquestion']['questionrows'][$key]) {
@@ -146,7 +176,7 @@ class action extends app {
                     }
                 }
             }
-            print_r($knowslog);
+//            print_r($knowslog);
             $this->exam->insertKnowsLog($knowslog);
             $sessionvars['examsessionscore'] = $sumscore;
             $args['examsessionscorelist'] = $sessionvars['examsessionscorelist'];

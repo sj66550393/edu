@@ -845,7 +845,12 @@ class exam_exam {
         $sql = $this->pdosql->makeSelect($data);
         return $this->db->fetch($sql);
     }
-
+    
+    public function updateUserKnowsMaster($args){
+        $data = array('knowsmaster', $args, array(array("AND", "knowsmasterid = :knowsmasterid", 'knowsmasterid', $args['knowsmasterid'])));
+        $sql = $this->pdosql->makeUpdate($data);
+        $this->db->exec($sql);
+    }
 }
 
 ?>
