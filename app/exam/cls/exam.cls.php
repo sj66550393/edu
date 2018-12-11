@@ -820,37 +820,41 @@ class exam_exam {
         $sql = $this->pdosql->makeInsert($data);
         return $this->db->exec($sql);
     }
-    
-    public function updateKnowsLog(){
+
+    public function updateKnowsLog() {
         
     }
 
-        //添加一个用户已掌握/未掌握的知识点
-    public function insertKnowsMaster($args){
-         $data = array('knowsmaster', $args);
+    //添加一个用户已掌握/未掌握的知识点
+    public function insertKnowsMaster($args) {
+//        print_r($args);
+        $data = array('knowsmaster', $args);
         $sql = $this->pdosql->makeInsert($data);
         return $this->db->exec($sql);
     }
-    
+
     //删除一个用户已掌握/未掌握的知识点
-    public function deleteKnowsMaster($userid , $knowsid){
-        $data = array(false , "knowsmaster" , array(array("AND" , "userid = :userid" , 'userid' , $userid) , array("AND" , "knowsid" , 'knowsid' , $knowsid)));
+    public function deleteKnowsMaster($userid, $knowsid) {
+        $data = array(false, "knowsmaster", array(array("AND", "userid = :userid", 'userid', $userid), array("AND", "knowsid", 'knowsid', $knowsid)));
         $sql = $this->pdosql->makeDelete($data);
         return $this->db->exec($sql);
     }
 
     //获取用户是否掌握知识点情况
-    public function getUserKnowsMaster($userid , $knowsid){
-        $data = array(false , "knowsmaster" , array(array("AND" , "userid = :userid" , 'userid' , $userid) , array("AND" , "knowsid" , 'knowsid' , $knowsid)));
+    public function getUserKnowsMaster($userid, $knowsid) {
+        echo "userid = ".$userid;
+        echo "knowsid = ".$knowsid;
+        $data = array(false, "knowsmaster", array(array("AND", "userid = :userid", 'userid', $userid), array("AND", "knowsid = :knowsid", 'knowsid', $knowsid)));
         $sql = $this->pdosql->makeSelect($data);
         return $this->db->fetch($sql);
     }
-    
-    public function updateUserKnowsMaster($args){
+
+    public function updateUserKnowsMaster($args) {
         $data = array('knowsmaster', $args, array(array("AND", "knowsmasterid = :knowsmasterid", 'knowsmasterid', $args['knowsmasterid'])));
         $sql = $this->pdosql->makeUpdate($data);
         $this->db->exec($sql);
     }
+
 }
 
 ?>

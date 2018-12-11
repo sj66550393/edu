@@ -40,9 +40,9 @@
 																																																																																			</ul>
 					<div class="tab-content" style="margin-top:5px;" id="questionindex">
 																																																<div role="tabpanel" class="tab-pane tableindex active" id="qt_8">
-										                			                			                							<a id="sign_3" href="javascript:;" onclick="javascript:gotoquestion('3')" class="btn btn-default">1</a>
-										                			                							<a id="sign_4" href="javascript:;" onclick="javascript:gotoquestion('4')" class="btn btn-default">2</a>
-										                			                							<a id="sign_26" href="javascript:;" onclick="javascript:gotoquestion('26')" class="btn btn-default">3</a>
+										                			                			                							<a id="sign_2" href="javascript:;" onclick="javascript:gotoquestion('2')" class="btn btn-default">1</a>
+										                			                							<a id="sign_3" href="javascript:;" onclick="javascript:gotoquestion('3')" class="btn btn-default">2</a>
+										                			                							<a id="sign_4" href="javascript:;" onclick="javascript:gotoquestion('4')" class="btn btn-default">3</a>
 																				</div>
 																																																<div role="tabpanel" class="tab-pane tableindex" id="qt_7">
 										                			                			                							<a id="sign_16" href="javascript:;" onclick="javascript:gotoquestion('16')" class="btn btn-default">1</a>
@@ -62,9 +62,28 @@
 																																<div class="box itembox questionpanel" id="questype_8">
 					<blockquote class="questype">一、判断题</blockquote>
 				</div>
-				                                                				<div class="box itembox paperexamcontent" id="questions_3" rel="8">
+				                                                				<div class="box itembox paperexamcontent" id="questions_2" rel="8">
 					<h4 class="title">
 						第1题
+						<span class="pull-right">
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('2',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_2">
+							<input id="time_2" type="hidden" name="time[2]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a><p>判断题考查知识点2</p>					</div>
+															<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[2]" rel="2" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[2]" rel="2" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+										<div class="toolbar">
+																		<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(1);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+											</div>
+				</div>
+				                                				<div class="box itembox paperexamcontent" id="questions_3" rel="8">
+					<h4 class="title">
+						第2题
 						<span class="pull-right">
 							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('3',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
 							<a name="question_3">
@@ -80,12 +99,13 @@
 	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[3]" rel="3" value="D" />D </label>
 	                        	                        	                        	                                        </div>
 										<div class="toolbar">
-																		<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(1);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+												<a class="btn btn-default" onclick="javascript:gotoindexquestion(0);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																		<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(2);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
 											</div>
 				</div>
 				                                				<div class="box itembox paperexamcontent" id="questions_4" rel="8">
 					<h4 class="title">
-						第2题
+						第3题
 						<span class="pull-right">
 							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('4',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
 							<a name="question_4">
@@ -101,28 +121,6 @@
 	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[4]" rel="4" value="B" />B </label>
 	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[4]" rel="4" value="C" />C </label>
 	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[4]" rel="4" value="D" />D </label>
-	                        	                        	                        	                                        </div>
-										<div class="toolbar">
-												<a class="btn btn-default" onclick="javascript:gotoindexquestion(0);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
-																		<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(2);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
-											</div>
-				</div>
-				                                				<div class="box itembox paperexamcontent" id="questions_26" rel="8">
-					<h4 class="title">
-						第3题
-						<span class="pull-right">
-							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('26',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
-							<a name="question_26">
-							<input id="time_26" type="hidden" name="time[26]"/>
-						</span>
-					</h4>
-					<div class="choice">
-						</a>判断题考察知识点12					</div>
-															<div class="choice">
-                    	&lt;p&gt;A:太古代&lt;/p&gt;&lt;p&gt;B:古生代&lt;/p&gt;&lt;p&gt;C:元生代&lt;/p&gt;                    </div>
-                    					<div class="selector">
-                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[26]" rel="26" value="A" />A </label>
-	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[26]" rel="26" value="B" />B </label>
 	                        	                        	                        	                                        </div>
 										<div class="toolbar">
 												<a class="btn btn-default" onclick="javascript:gotoindexquestion(1);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>

@@ -140,19 +140,15 @@ class action extends app {
                                     if ($knowslog['knowsRecent'][$know['knowsid']] <= -3) {
                                         $knowsmaster = $this->exam->getUserKnowsMaster($sessionvars['examsessionuserid'], $know['knowsid']);
                                         print_r($knowsmaster);
-                                        if (is_null($knowsmaster)) {
-                                            echo "is null";
+                                        if (is_null($knowsmaster['userid'])) {
                                             $knowsmaster['createTime'] = TIME;
                                             $knowsmaster['userid'] = $sessionvars['examsessionuserid'];
                                             $knowsmaster['knowsid'] = $know['knowsid'];
                                             $knowsmaster['master'] = -1;
-//                                            print_r($knowsmaster);
                                             $this->exam->insertKnowsMaster($knowsmaster);
                                         } else {
-                                            echo "not null";
-                                            $knowsmaster['createtime'] = TIME;
+                                            $knowsmaster['createTime'] = TIME;
                                             $knowsmaster['master'] = -1;
-//                                            print_r($knowsmaster);
                                             $this->exam->updateUserKnowsMaster($knowsmaster);
                                         }
                                         $knowslog['knowsRecent'][$know['knowsid']] = 0;
